@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */; };
 		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
 		2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6E1D453434006EED5A /* ViewController.swift */; };
 		2CFC0B721D453434006EED5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B701D453434006EED5A /* Main.storyboard */; };
@@ -24,6 +25,9 @@
 		2CFC0B761D453434006EED5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFC0B781D453434006EED5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNoGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo.release.xcconfig"; sourceTree = "<group>"; };
+		A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNoGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo.debug.xcconfig"; sourceTree = "<group>"; };
+		E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoNoGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				2CFC0B6B1D453433006EED5A /* GoNoGo */,
 				2CFC0B6A1D453433006EED5A /* Products */,
+				813977D36F54121B38CA3C49 /* Pods */,
+				FBA3C329D3131445080579E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = GoNoGo;
 			sourceTree = "<group>";
 		};
+		813977D36F54121B38CA3C49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */,
+				594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBA3C329D3131445080579E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CFC0B7B1D453434006EED5A /* Build configuration list for PBXNativeTarget "GoNoGo" */;
 			buildPhases = (
+				531B0C080585100D9A440C07 /* [CP] Check Pods Manifest.lock */,
 				2CFC0B651D453433006EED5A /* Sources */,
 				2CFC0B661D453433006EED5A /* Frameworks */,
 				2CFC0B671D453433006EED5A /* Resources */,
+				50B1D69B8AF0931351C50ECF /* [CP] Embed Pods Frameworks */,
+				C3FDD22C3E2982190961B2FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50B1D69B8AF0931351C50ECF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		531B0C080585100D9A440C07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3FDD22C3E2982190961B2FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CFC0B651D453433006EED5A /* Sources */ = {
@@ -251,6 +326,7 @@
 		};
 		2CFC0B7C1D453434006EED5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoNoGo/Info.plist;
@@ -262,6 +338,7 @@
 		};
 		2CFC0B7D1D453434006EED5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoNoGo/Info.plist;
@@ -290,6 +367,7 @@
 				2CFC0B7D1D453434006EED5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
