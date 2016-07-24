@@ -12,6 +12,7 @@
 		2CFC0B721D453434006EED5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B701D453434006EED5A /* Main.storyboard */; };
 		2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B731D453434006EED5A /* Assets.xcassets */; };
 		2CFC0B771D453434006EED5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */; };
+		2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2CFC0B731D453434006EED5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CFC0B761D453434006EED5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFC0B781D453434006EED5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		2CFC0B6B1D453433006EED5A /* GoNoGo */ = {
 			isa = PBXGroup;
 			children = (
+				2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */,
 				2CFC0B6C1D453433006EED5A /* AppDelegate.swift */,
 				2CFC0B6E1D453434006EED5A /* ViewController.swift */,
 				2CFC0B701D453434006EED5A /* Main.storyboard */,
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFC0B771D453434006EED5A /* LaunchScreen.storyboard in Resources */,
+				2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */,
 				2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */,
 				2CFC0B721D453434006EED5A /* Main.storyboard in Resources */,
 			);
