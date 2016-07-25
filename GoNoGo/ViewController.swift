@@ -28,29 +28,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
     
 
 
-    @IBAction func LogIn(sender: AnyObject) {
-        if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
-            if UIImagePickerController.availableCaptureModesForCameraDevice(.Front) != nil {
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .Camera
-                imagePicker.cameraCaptureMode = .Photo
-                presentViewController(imagePicker, animated: true, completion: {})
-            } else {
-                print("Rear camera doesn't exist")
-            }
-        } else {
-            print("Camera inaccessable")
-        }
-        
-    }
-    
+
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
-       if result.grantedPermissions.contains("email")
-       {
+     
         storyboard?.instantiateViewControllerWithIdentifier("CameraView")
-       }
+       
     }
    
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
