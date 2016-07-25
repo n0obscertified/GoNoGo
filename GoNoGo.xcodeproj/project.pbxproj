@@ -10,9 +10,6 @@
 		1CFFEB051D458AA5006A2D14 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFEB041D458AA5006A2D14 /* CameraViewController.swift */; };
 		25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */; };
 		2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD8DD41D45589C002A04FF /* Main.storyboard */; };
-		2CD6443E1D45983800BBD81C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD6443B1D45983800BBD81C /* FBSDKCoreKit.framework */; };
-		2CD6443F1D45983800BBD81C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD6443C1D45983800BBD81C /* FBSDKLoginKit.framework */; };
-		2CD644401D45983800BBD81C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD6443D1D45983800BBD81C /* FBSDKShareKit.framework */; };
 		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
 		2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6E1D453434006EED5A /* ViewController.swift */; };
 		2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B731D453434006EED5A /* Assets.xcassets */; };
@@ -22,10 +19,8 @@
 
 /* Begin PBXFileReference section */
 		1CFFEB041D458AA5006A2D14 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		2CCD8DD51D45589C002A04FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2CD6443B1D45983800BBD81C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		2CD6443C1D45983800BBD81C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		2CD6443D1D45983800BBD81C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		2CFC0B691D453433006EED5A /* GoNoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFC0B6C1D453433006EED5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CFC0B6E1D453434006EED5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,10 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD644401D45983800BBD81C /* FBSDKShareKit.framework in Frameworks */,
 				25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */,
-				2CD6443E1D45983800BBD81C /* FBSDKCoreKit.framework in Frameworks */,
-				2CD6443F1D45983800BBD81C /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +74,7 @@
 				2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */,
 				2CFC0B781D453434006EED5A /* Info.plist */,
 				1CFFEB041D458AA5006A2D14 /* CameraViewController.swift */,
+				1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */,
 			);
 			path = GoNoGo;
 			sourceTree = "<group>";
@@ -98,9 +91,6 @@
 		FBA3C329D3131445080579E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2CD6443B1D45983800BBD81C /* FBSDKCoreKit.framework */,
-				2CD6443C1D45983800BBD81C /* FBSDKLoginKit.framework */,
-				2CD6443D1D45983800BBD81C /* FBSDKShareKit.framework */,
 				E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */,
 			);
 			name = Frameworks;
@@ -353,6 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GoNoGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoNoGo/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -369,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GoNoGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoNoGo/Bridging-Header.h";
 			};
 			name = Release;
 		};
