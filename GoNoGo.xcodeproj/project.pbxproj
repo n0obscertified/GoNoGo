@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1CFFEB051D458AA5006A2D14 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFEB041D458AA5006A2D14 /* CameraViewController.swift */; };
+		1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB191D45A378006A2D14 /* Bolts.framework */; };
+		1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */; };
+		1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */; };
+		1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */; };
 		25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */; };
 		2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD8DD41D45589C002A04FF /* Main.storyboard */; };
 		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		1CFFEB041D458AA5006A2D14 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		1CFFEB191D45A378006A2D14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		2CCD8DD51D45589C002A04FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CFC0B691D453433006EED5A /* GoNoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFC0B6C1D453433006EED5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */,
+				1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */,
+				1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */,
+				1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */,
+				1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +103,10 @@
 		FBA3C329D3131445080579E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CFFEB191D45A378006A2D14 /* Bolts.framework */,
+				1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */,
+				1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */,
+				1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */,
 				E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */,
 			);
 			name = Frameworks;
@@ -338,6 +354,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
 				);
 				INFOPLIST_FILE = GoNoGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -355,6 +372,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
 				);
 				INFOPLIST_FILE = GoNoGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

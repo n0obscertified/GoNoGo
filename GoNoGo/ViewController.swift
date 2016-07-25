@@ -24,6 +24,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate {
     }
     
     
+    @IBAction func facebookLogon(sender: AnyObject) {
+        
+    }
 
     @IBAction func LogIn(sender: AnyObject) {
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {

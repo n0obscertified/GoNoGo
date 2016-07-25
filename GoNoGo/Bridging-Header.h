@@ -6,8 +6,6 @@
 //  Copyright © 2016 Ismael. All rights reserved.
 //
 
-#ifndef Bridging_Header_h
-#define Bridging_Header_h
 
 #ifndef FacebookTutorial_Bridging_Header_h
 #define FacebookTutorial_Bridging_Header_h
