@@ -43,7 +43,7 @@
         <!--Camera View Controller-->
         <scene sceneID="I2O-81-Osn">
             <objects>
-                <viewController id="edZ-oT-eRz" customClass="CameraViewController" customModule="GoNoGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraView" id="edZ-oT-eRz" customClass="CameraViewController" customModule="GoNoGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZBx-zK-J6i"/>
                         <viewControllerLayoutGuide type="bottom" id="bh3-uq-bEW"/>

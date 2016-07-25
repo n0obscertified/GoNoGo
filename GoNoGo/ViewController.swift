@@ -26,10 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func facebookLogon(sender: AnyObject) {
-        
-    }
+
 
     @IBAction func LogIn(sender: AnyObject) {
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
@@ -50,7 +47,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
-        
+       if result.grantedPermissions.contains("email")
+       {
+        storyboard?.instantiateViewControllerWithIdentifier("CameraView")
+       }
     }
    
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
