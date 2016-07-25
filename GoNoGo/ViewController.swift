@@ -9,12 +9,15 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLoginButtonDelegate {
 
+    @IBOutlet weak var FbLogIn: FBSDKLoginButton!
+    
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.FbLogIn.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -41,6 +44,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate {
         } else {
             print("Camera inaccessable")
         }
+        
+    }
+    
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        
+    }
+   
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
         
     }
     
