@@ -9,16 +9,32 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var FbLogIn: FBSDKLoginButton!
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
     override func viewDidLoad() {
+        self.FbLogIn.delegate = self;
         super.viewDidLoad()
-        self.FbLogIn.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            print("User is already loggen in....")
+            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView")
+            print("navigating to the next view controller from view did load")
+            
+            self.navigationController!.pushViewController(cameraViewController, animated: true)
+            
+        }
+        else
+        {
+            self.FbLogIn.readPermissions = ["public_profile", "email"]
+
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,55 +42,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
         // Dispose of any resources that can be recreated.
     }
     
-
-
-    @IBAction func LogIn(sender: AnyObject) {
-        if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
-            if UIImagePickerController.availableCaptureModesForCameraDevice(.Front) != nil {
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .Camera
-                imagePicker.cameraCaptureMode = .Photo
-                presentViewController(imagePicker, animated: true, completion: {})
-            } else {
-                print("Rear camera doesn't exist")
-            }
-        } else {
-            print("Camera inaccessable")
-        }
-        
-    }
-    
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
-       if result.grantedPermissions.contains("email")
-       {
-        storyboard?.instantiateViewControllerWithIdentifier("CameraView")
-       }
+        if ((error) != nil)
+        {
+            // Process error
+        }
+        else if result.isCancelled {
+            // Handle cancellations
+        }
+        else {
+            // If you ask for multiple permissions at once, you
+            // should check if specific permissions missing
+            if result.grantedPermissions.contains("email")
+            {
+                print(result)
+                let cameraViewController = storyboard!.instantiateViewControllerWithIdentifier("CameraView")
+                print("navigating to the next view controller")
+                
+                self.navigationController!.pushViewController(cameraViewController, animated: true)
+                
+            }
+        }
     }
    
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
     {
+        print("Print User logged out")
+        
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        FBSDKProfile.setCurrentProfile(nil)
+        
+        let deletepermission = FBSDKGraphRequest(graphPath: "user-id/permissions/", parameters: nil, HTTPMethod: "DELETE")
+        deletepermission.startWithCompletionHandler({(connection,result,error)-> Void in
+            print("the delete permission is \(result)")
+            
+        })
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("Got an image")
-        if let pickedImage:UIImage = (info[UIImagePickerControllerOriginalImage]) as? UIImage {
-            let selectorToCall = Selector("imageWasSavedSuccessfully:didFinishSavingWithError:context:")
-            UIImageWriteToSavedPhotosAlbum(pickedImage, self, selectorToCall, nil)
-        }
-        imagePicker.dismissViewControllerAnimated(true, completion: {
-            // Anything you want to happen when the user saves an image
-        })
-    }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        print("User canceled image")
-        dismissViewControllerAnimated(true, completion: {
-            // Anything you want to happen when the user selects cancel
-        })
-    }
-
 }
 
