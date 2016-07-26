@@ -74,7 +74,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         FBSDKAccessToken.setCurrentAccessToken(nil)
         FBSDKProfile.setCurrentProfile(nil)
         
-        let deletepermission = FBSDKGraphRequest(graphPath: "user-id/permissions/", parameters: nil, HTTPMethod: "DELETE")
+        let deletepermission = FBSDKGraphRequest(graphPath: "me/permissions/", parameters: nil, HTTPMethod: "DELETE")
         deletepermission.startWithCompletionHandler({(connection,result,error)-> Void in
             print("the delete permission is \(result)")
             
