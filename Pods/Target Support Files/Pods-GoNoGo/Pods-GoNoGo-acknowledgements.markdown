@@ -7,7 +7,7 @@ Copyright 2016 Google Inc.
 
 ## FirebaseAnalytics
 
-Copyright 2016 Google
+Copyright 2016 Google Inc.
 
 ## FirebaseInstanceID
 
