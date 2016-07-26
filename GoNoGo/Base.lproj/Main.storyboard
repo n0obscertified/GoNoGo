@@ -20,6 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvP-dT-WVT" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="279" y="285" width="42" height="30"/>
                                 <state key="normal" title="Log In"/>
+                                <connections>
+                                    <segue destination="zE1-SU-eG2" kind="show" id="fFn-EB-dr1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -31,7 +34,6 @@
                     <navigationItem key="navigationItem" id="xSS-Eo-Ug1"/>
                     <connections>
                         <outlet property="FbLogIn" destination="WvP-dT-WVT" id="KKX-tg-nZ9"/>
-                        <segue destination="zE1-SU-eG2" kind="show" id="VMl-yb-cBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,7 +62,7 @@
         <!--Item 1-->
         <scene sceneID="EP8-sT-cUy">
             <objects>
-                <viewController id="dvt-Z9-2DF" sceneMemberID="viewController">
+                <viewController id="dvt-Z9-2DF" customClass="CameraViewController" customModule="GoNoGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xOV-Ws-Co9"/>
                         <viewControllerLayoutGuide type="bottom" id="6Zm-VB-HlK"/>
@@ -68,9 +70,22 @@
                     <view key="view" contentMode="scaleToFill" id="r4S-qU-AXL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-bc-y6d">
+                                <rect key="frame" x="277" y="505" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Zm-VB-HlK" firstAttribute="top" secondItem="6xw-bc-y6d" secondAttribute="bottom" constant="16" id="0ij-j1-e8B"/>
+                            <constraint firstItem="6xw-bc-y6d" firstAttribute="centerX" secondItem="r4S-qU-AXL" secondAttribute="centerX" id="ycA-aV-NW6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="8NX-25-np6"/>
+                    <connections>
+                        <outlet property="LiveView" destination="r4S-qU-AXL" id="aet-9e-fwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moJ-C7-1y8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +94,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qfX-Pt-dhi">
             <objects>
-                <tabBarController id="zE1-SU-eG2" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabControl" id="zE1-SU-eG2" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gFA-fB-RrE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

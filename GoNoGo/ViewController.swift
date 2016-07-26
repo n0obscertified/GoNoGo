@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var FbLogIn: FBSDKLoginButton!
     
@@ -18,6 +18,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.FbLogIn.delegate = self
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            print("User is already loggen in....")
+            // User is already logged in, do work such as go to next view controller.
+        }
+        else
+        {
+            self.FbLogIn.readPermissions = ["public_profile", "email"]
+         //   FbLogIn = FBSDKLoginButton()
+          //  self.view.addSubview(FbLogIn)
+           // FbLogIn.center = self.view.center
+           // FbLogIn.readPermissions = ["public_profile", "email"]
+           // self.FbLogIn.delegate = self
+            
+        }
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,12 +46,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, FBSDKLo
     
 
 
+ 
 
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
      
-        storyboard?.instantiateViewControllerWithIdentifier("CameraView")
        
     }
    
