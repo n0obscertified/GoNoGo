@@ -20,9 +20,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvP-dT-WVT" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="279" y="285" width="42" height="30"/>
                                 <state key="normal" title="Log In"/>
-                                <connections>
-                                    <segue destination="zE1-SU-eG2" kind="show" id="fFn-EB-dr1"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
