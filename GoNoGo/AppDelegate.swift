@@ -12,18 +12,20 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    override init() {
+        FIRApp.configure()
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
+       // FIRApp.configure()
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func application(application: UIApplication,
                      openURL url: NSURL,
                              sourceApplication: String?,
-                             annotation: AnyObject?) -> Bool {
+                             annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
             openURL: url,

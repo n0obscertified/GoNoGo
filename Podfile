@@ -6,5 +6,7 @@ target 'GoNoGo' do
   use_frameworks!
 
   # Pods for GoNoGo
-  pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'ALCameraViewController'
 end

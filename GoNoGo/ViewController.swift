@@ -8,25 +8,58 @@
 
 import UIKit
 import AVFoundation
-
+import Firebase
+import FirebaseAuth
+import ALCameraViewController
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var FbLogIn: FBSDKLoginButton!
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
+    var ref:FIRDatabaseReference? = FIRDatabase.database().reference()
+
+    
+    var croppingEnabled: Bool = false
+    
+    var libraryEnabled: Bool = true
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+ 
+        if FBSDKAccessToken.currentAccessToken() != nil
+        {
+            let facebookAuth = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        
+            
+            FIRAuth.auth()?.signInWithCredential(facebookAuth)
+            { (user, error) in
+            
+                if let rcverror = error{
+                    print(rcverror)
+                }
+                else{
+                    print(user)
+                }
+            }
+        }
+
+    }
+    
     override func viewDidLoad() {
-        self.FbLogIn.delegate = self;
+        
         super.viewDidLoad()
         
-        
+        self.FbLogIn.delegate = self;
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
+            
+            
             print("User is already loggen in....")
-            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("TabControl")
+            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
             print("navigating to the next view controller from view did load")
             
-            self.navigationController!.pushViewController(cameraViewController, animated: true)
+            self.navigationController!.showViewController(cameraViewController, sender: self)
             
         }
         else
@@ -57,8 +90,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
-                print(result)
-                let cameraViewController = storyboard!.instantiateViewControllerWithIdentifier("TabControl")
+            
+                
+            
+                let cameraViewController = storyboard!.instantiateViewControllerWithIdentifier("PageView")
                 print("navigating to the next view controller")
                 
                 self.navigationController!.pushViewController(cameraViewController, animated: true)
@@ -66,6 +101,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
         }
     }
+    
+
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
     {

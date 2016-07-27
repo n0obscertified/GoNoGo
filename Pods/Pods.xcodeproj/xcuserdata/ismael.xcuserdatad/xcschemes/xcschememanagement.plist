@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ALCameraViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GoNoGo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -12,7 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A6E0FB40C01A1009D755151CB2842834</key>
+		<key>72BF8CFC9671BDFA1F0471B864F88937</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAEFE5845A9A47287B43BE713DFD4B08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
