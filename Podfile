@@ -10,4 +10,5 @@ target 'GoNoGo' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'ALCameraViewController'
+  pod 'SwiftCompressor'
 end

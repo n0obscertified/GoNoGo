@@ -564,7 +564,8 @@ public class CameraViewController: UIViewController {
             }
         }
         confirmViewController?.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        presentViewController(confirmViewController!, animated: true, completion: nil)
+
+        self.parentViewController?.presentViewController(confirmViewController!, animated: true, completion: nil)
     }
     
 }

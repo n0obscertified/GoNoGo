@@ -8,34 +8,81 @@
 
 import UIKit
 import ALCameraViewController
-import Firebase
+import FirebaseAuth
 import FirebaseStorage
+import SwiftCompressor
 class GoCameraController: CameraViewController {
-
-
-    let Storage = FIRStorage.storage()
-
     
-    //("gs://gonogo-5d73d.appspot.com")
-    override func viewDidLoad() {
-        let base = Storage.referenceForURL("gs://gonogo-5d73d.appspot.com")
-        let casual = base.child("casual")
+    let storage = FIRStorage.storage()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true;
-        self.changeOnComplete(){
-             image, asset in
-            
-            casual.putData(UIImagePNGRepresentation(image!)!)
-            
-            if let confirmController = self.getConfirmController
+        SaveAndUploadImage()
+        
+    }
+    
+    
+    func SaveAndUploadImage()
+    {
+        let base = storage.referenceForURL("gs://gonogo-5d73d.appspot.com")
+        self.changeOnComplete()
             {
-             confirmController.cancel()
-            }
-            print(image)
+                image, asset in
+                FIRAuth.auth()?.addAuthStateDidChangeListener(
+                    {
+                        (auth, user) in
+                        if let currentUsr  = user
+                        {
+                            let  bucket = base.child("\(currentUsr.uid)/\(asset!.creationDate!.description)")
+                            
+                            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
+                            {
+                                
+                                if let rawImage = image
+                                {
+                                                                       
+                                    var data:NSData?
+                                    do
+                                    {
+                                        if let compression = try UIImageJPEGRepresentation(rawImage,1)?.compress(algorithm:.LZMA)
+                                        {
+                                            data = compression
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        data = UIImagePNGRepresentation(rawImage)
+                                    }
+                                    if let data  = data
+                                    {
+                                        bucket.putData(data)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        self.Cancel()
+                        
+                })
+                
+                
+        }
+        
+    }
+    
+    
+    
+    func Cancel ()
+    {
+        if let confirmController = self.getConfirmController
+        {
             
+            confirmController.cancel()
             
         }
-       
+        
     }
     
     func Complete() {
