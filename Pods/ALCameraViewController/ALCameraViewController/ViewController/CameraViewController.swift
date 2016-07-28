@@ -40,6 +40,8 @@ public extension CameraViewController {
         
         return navigationController
     }
+    
+    var getConfirmController: ConfirmViewController? { return self.confirmViewController}
 }
 
 public class CameraViewController: UIViewController {
@@ -82,11 +84,13 @@ public class CameraViewController: UIViewController {
     var cameraOverlayWidthConstraint: NSLayoutConstraint?
     var cameraOverlayCenterConstraint: NSLayoutConstraint?
     
+    var confirmViewController:ConfirmViewController?
     let cameraView : CameraView = {
         let cameraView = CameraView()
         cameraView.translatesAutoresizingMaskIntoConstraints = false
         return cameraView
     }()
+
     
     let cameraOverlay : CropOverlay = {
         let cameraOverlay = CropOverlay()
@@ -377,6 +381,10 @@ public class CameraViewController: UIViewController {
         cameraView.rotatePreview()
     }
     
+    public func changeOnComplete(completion: CameraViewCompletion){
+     self.onCompletion = completion
+    }
+    
     /**
      * This method will rotate the buttons based on
      * the last and actual orientation of the device.
@@ -546,16 +554,17 @@ public class CameraViewController: UIViewController {
     }
     
     private func startConfirmController(asset: PHAsset) {
-        let confirmViewController = ConfirmViewController(asset: asset, allowsCropping: allowCropping)
-        confirmViewController.onComplete = { image, asset in
+         confirmViewController = ConfirmViewController(asset: asset, allowsCropping: allowCropping)
+        
+        confirmViewController?.onComplete = { image, asset in
             if let image = image, asset = asset {
                 self.onCompletion?(image, asset)
             } else {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        confirmViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        presentViewController(confirmViewController, animated: true, completion: nil)
+        confirmViewController?.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        presentViewController(confirmViewController!, animated: true, completion: nil)
     }
     
 }
