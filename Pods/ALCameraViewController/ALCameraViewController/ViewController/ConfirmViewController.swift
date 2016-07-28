@@ -202,7 +202,7 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         cancelButton.action = { [weak self] in self?.cancel() }
     }
     
-    internal func cancel() {
+    public func cancel() {
         onComplete?(nil, nil)
     }
     
@@ -278,6 +278,7 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     func enable() {
         confirmButton.enabled = true
     }
+    
     
     func showNoImageScreen(error: NSError) {
         let permissionsView = PermissionsView(frame: view.bounds)

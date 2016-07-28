@@ -7,6 +7,7 @@ target 'GoNoGo' do
 
   # Pods for GoNoGo
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'ALCameraViewController'
 end
