@@ -15,10 +15,79 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var FbLogIn: FBSDKLoginButton!
     
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     let imagePicker: UIImagePickerController! = UIImagePickerController()
+    
+    var userEmail:String=""
+    var userPassword:String=""
     
     var ref:FIRDatabaseReference? = FIRDatabase.database().reference()
 
+    
+    @IBAction func email(sender: UITextField) {
+        self.userEmail = sender.text!
+    }
+    
+    @IBAction func password(sender: UITextField) {
+        self.userPassword = sender.text!
+    }
+    
+    
+    @IBAction func LogIn(sender: UIButton)
+    {
+        LogInAndNavigate()
+    }
+    
+    private func LogInAndNavigate()
+    {
+        FIRAuth.auth()?.signInWithEmail(self.userEmail, password: self.userPassword, completion: { (user, err) in
+            if user != nil{
+                
+                let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
+                print("navigating to the next view controller from view did load")
+                
+                self.navigationController!.showViewController(cameraViewController, sender: self)
+            }
+            else{
+                let alertController = UIAlertController(title: "Uh oh!", message: err?.localizedDescription, preferredStyle: .Alert)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                    alertController.dismissViewControllerAnimated(true, completion: nil)
+                }
+                
+                alertController.addAction(okAction)
+                self.logInButton.hidden = true
+                self.signUpButton.hidden = false;
+            }
+        })
+    }
+    
+    
+    @IBAction func SignUpAndLogIn(sender: UIButton)
+    {
+        FIRAuth.auth()?.createUserWithEmail(self.userEmail, password: self.userPassword)
+        { (user, err) in
+            if user != nil{
+              self.LogInAndNavigate()
+            }
+            else
+            {
+                let alertController = UIAlertController(title: "Uh oh!", message: err?.localizedDescription, preferredStyle: .Alert)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                    alertController.dismissViewControllerAnimated(true, completion: nil)
+                }
+                alertController.addAction(okAction)
+            }
+        }
+    }
+    
     
     var croppingEnabled: Bool = false
     
@@ -49,12 +118,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
-            
-            
+
             print("User is already loggen in....")
             let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
             print("navigating to the next view controller from view did load")
@@ -91,8 +159,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             if result.grantedPermissions.contains("email")
             {
             
-                
-            
                 let cameraViewController = storyboard!.instantiateViewControllerWithIdentifier("PageView")
                 print("navigating to the next view controller")
                 
@@ -106,11 +172,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
     {
-        print("Print User logged out")
-        
-        FBSDKAccessToken.setCurrentAccessToken(nil)
-        FBSDKProfile.setCurrentProfile(nil)
-        
         let deletepermission = FBSDKGraphRequest(graphPath: "me/permissions/", parameters: nil, HTTPMethod: "DELETE")
         deletepermission.startWithCompletionHandler({(connection,result,error)-> Void in
             print("the delete permission is \(result)")

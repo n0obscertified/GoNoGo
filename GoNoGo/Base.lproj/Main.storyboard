@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OR2-JK-7AL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OR2-JK-7AL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,19 +19,79 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvP-dT-WVT" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="279" y="285" width="42" height="30"/>
+                                <rect key="frame" x="225" y="384" width="150" height="30"/>
                                 <state key="normal" title="Log In"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3A-Au-SaJ">
+                                <rect key="frame" x="60" y="155" width="481" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <connections>
+                                    <action selector="email:" destination="BYZ-38-t0r" eventType="editingChanged" id="fFd-FS-tD7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqK-b9-BDA">
+                                <rect key="frame" x="60" y="199" width="481" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="password:" destination="BYZ-38-t0r" eventType="editingChanged" id="Dgv-qy-1kC"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UT-hX-A54">
+                                <rect key="frame" x="225" y="257" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="OwF-6W-WHT"/>
+                                </constraints>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="LogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lq7-wn-HYR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go?NoGo!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-mk-LnE">
+                                <rect key="frame" x="60" y="91" width="481" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jxL-bV-yWx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8R-2c-UQz">
+                                <rect key="frame" x="225" y="257" width="150" height="30"/>
+                                <state key="normal" title="Sign Up!"/>
+                                <connections>
+                                    <action selector="SignUpAndLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyf-84-CRH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WvP-dT-WVT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eAR-Su-RKm"/>
-                            <constraint firstItem="WvP-dT-WVT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zYh-TF-Jd4"/>
+                            <constraint firstItem="2UT-hX-A54" firstAttribute="baseline" secondItem="q8R-2c-UQz" secondAttribute="baseline" id="0Rr-Oy-xUg"/>
+                            <constraint firstItem="eqK-b9-BDA" firstAttribute="centerX" secondItem="q8R-2c-UQz" secondAttribute="centerX" id="1qx-KG-hgU"/>
+                            <constraint firstItem="CHq-mk-LnE" firstAttribute="leading" secondItem="i3A-Au-SaJ" secondAttribute="leading" id="1vQ-8d-is5"/>
+                            <constraint firstItem="CHq-mk-LnE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="4tz-3n-gYM"/>
+                            <constraint firstItem="i3A-Au-SaJ" firstAttribute="top" secondItem="CHq-mk-LnE" secondAttribute="bottom" constant="43" id="Egd-J9-1Gr"/>
+                            <constraint firstItem="i3A-Au-SaJ" firstAttribute="leading" secondItem="eqK-b9-BDA" secondAttribute="leading" id="KCb-eA-gDs"/>
+                            <constraint firstItem="i3A-Au-SaJ" firstAttribute="trailing" secondItem="eqK-b9-BDA" secondAttribute="trailing" id="Z1k-mf-H51"/>
+                            <constraint firstItem="CHq-mk-LnE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZRs-LH-SzK"/>
+                            <constraint firstItem="CHq-mk-LnE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="ZdR-uW-KIM"/>
+                            <constraint firstItem="2UT-hX-A54" firstAttribute="trailing" secondItem="WvP-dT-WVT" secondAttribute="trailing" id="d59-Zh-Onn"/>
+                            <constraint firstItem="2UT-hX-A54" firstAttribute="top" secondItem="eqK-b9-BDA" secondAttribute="bottom" constant="28" id="fbZ-Sg-iA4"/>
+                            <constraint firstItem="2UT-hX-A54" firstAttribute="trailing" secondItem="q8R-2c-UQz" secondAttribute="trailing" id="gVa-G6-EQk"/>
+                            <constraint firstItem="2UT-hX-A54" firstAttribute="leading" secondItem="WvP-dT-WVT" secondAttribute="leading" id="hfG-uK-xT6"/>
+                            <constraint firstItem="CHq-mk-LnE" firstAttribute="trailing" secondItem="i3A-Au-SaJ" secondAttribute="trailing" id="nFD-is-gai"/>
+                            <constraint firstItem="q8R-2c-UQz" firstAttribute="leading" secondItem="2UT-hX-A54" secondAttribute="leading" id="nap-lU-DsU"/>
+                            <constraint firstItem="WvP-dT-WVT" firstAttribute="top" secondItem="2UT-hX-A54" secondAttribute="bottom" constant="97" id="tcl-ln-05I"/>
+                            <constraint firstItem="eqK-b9-BDA" firstAttribute="top" secondItem="i3A-Au-SaJ" secondAttribute="bottom" constant="14" id="viS-cL-8Fx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xSS-Eo-Ug1"/>
                     <connections>
                         <outlet property="FbLogIn" destination="WvP-dT-WVT" id="qyt-un-iPQ"/>
+                        <outlet property="logInButton" destination="2UT-hX-A54" id="AoJ-hr-e8V"/>
+                        <outlet property="signUpButton" destination="q8R-2c-UQz" id="Kcp-Fr-kkv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
