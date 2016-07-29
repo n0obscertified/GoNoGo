@@ -12,10 +12,14 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newController("Camera"),
-            self.newController("Profile")]
+        return [
+            self.newController("Main",page: "Camera"),
+            self.newController("Main",page: "Profile"),
+            self.newController("GoNoGo",page: "GoNoGo")]
     }()
     
+
+    var index = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +34,31 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
    {
-     return viewController
+     if index > 0
+     {
+        index = index - 1
+     }else{
+        index = self.orderedViewControllers.count - 1
+    }
+    
+     return  self.orderedViewControllers[index]
     }
     
    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
    {
-     return viewController
+    if index < self.orderedViewControllers.count - 1
+    {
+        index += 1
+    }else
+    {
+        index = 0
     }
     
-    private func newController(page: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil) .
+     return self.orderedViewControllers[index]
+    }
+    
+    private func newController(storyBoard:String,page: String) -> UIViewController {
+        return UIStoryboard(name: storyBoard, bundle: nil) .
             instantiateViewControllerWithIdentifier("\(page)ViewController")
     }
 }
