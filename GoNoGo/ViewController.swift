@@ -104,10 +104,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             FIRAuth.auth()?.signInWithCredential(facebookAuth)
             { (user, error) in
             
-                if let rcverror = error{
+                if let rcverror = error
+                {
                     print(rcverror)
                 }
-                else{
+                else
+                {
                     print(user)
                 }
             }

@@ -9,11 +9,11 @@
 import UIKit
 import ALCameraViewController
 import FirebaseAuth
-import FirebaseStorage
+import FirebaseDatabase
 import SwiftCompressor
 class GoCameraController: CameraViewController {
     
-    let storage = FIRStorage.storage()
+    let databse = FIRDatabase.database().reference()
     
     override func viewDidLoad()
     {
@@ -26,39 +26,45 @@ class GoCameraController: CameraViewController {
     
     func SaveAndUploadImage()
     {
-        let base = storage.referenceForURL("gs://gonogo-5d73d.appspot.com")
+        
         self.changeOnComplete()
             {
                 image, asset in
                 FIRAuth.auth()?.addAuthStateDidChangeListener(
                     {
                         (auth, user) in
+                        
                         if let currentUsr  = user
                         {
-                            let  bucket = base.child("\(currentUsr.uid)/\(asset!.creationDate!.description)")
                             
                             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
                             {
                                 
                                 if let rawImage = image
                                 {
-                                                                       
-                                    var data:NSData?
-                                    do
-                                    {
-                                        if let compression = try UIImageJPEGRepresentation(rawImage,1)?.compress(algorithm:.LZMA)
-                                        {
-                                            data = compression
-                                        }
+                                    let stringImage:String
+                                    do{
+                                        let compress = try UIImageJPEGRepresentation(rawImage,0)?.compress()
+                                        
+                                        stringImage = compress!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+                                        
+                                        
+                                    }catch{
+                                        
+                                        stringImage = ""
                                     }
-                                    catch
+                                    let key = self.databse.child("Users").child(currentUsr.uid).childByAutoId().key
+                                    
+                                    if !stringImage.isEmpty
                                     {
-                                        data = UIImagePNGRepresentation(rawImage)
+                                        
+                                        let chunk = Chunk(id:currentUsr.uid,key: key, chunkThis: stringImage,ref: self.databse)
+                                        
+                                        chunk.buildChildUpdates()
+                                        
                                     }
-                                    if let data  = data
-                                    {
-                                        bucket.putData(data)
-                                    }
+                                    
+                                    
                                 }
                             }
                         }

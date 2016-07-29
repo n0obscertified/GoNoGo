@@ -31,6 +31,9 @@
                             <constraint firstItem="dnN-2C-EEu" firstAttribute="top" secondItem="q7W-Cj-8Ug" secondAttribute="bottom" constant="109" id="srf-53-LBO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Image" destination="dnN-2C-EEu" id="p8h-VG-uaX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSP-Ha-z8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
