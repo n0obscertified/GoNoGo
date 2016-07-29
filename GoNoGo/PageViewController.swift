@@ -14,8 +14,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
             self.newController("Main",page: "Camera"),
+            self.newController("GoNoGo",page: "GoNoGo"),
             self.newController("Main",page: "Profile"),
-            self.newController("GoNoGo",page: "GoNoGo")]
+           ]
     }()
     
 
