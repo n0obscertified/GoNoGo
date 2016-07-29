@@ -79,7 +79,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let alertController = UIAlertController(title: "Uh oh!", message: err?.localizedDescription, preferredStyle: .Alert)
                 self.presentViewController(alertController, animated: true, completion: nil)
                 
-                var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
                     UIAlertAction in
                     alertController.dismissViewControllerAnimated(true, completion: nil)
                 }
@@ -112,7 +112,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
             }
         }
-
+        
+        
     }
     
     override func viewDidLoad() {

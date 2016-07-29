@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C9B96341D49B1E50072782E /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B96331D49B1E50072782E /* FirebaseStorage.framework */; };
+		1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */; };
+		1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96371D4AD6C50072782E /* ProfileViewController.swift */; };
 		1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB191D45A378006A2D14 /* Bolts.framework */; };
 		1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */; };
 		1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */; };
 		1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */; };
 		25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */; };
 		2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F75701D48350400EEC923 /* GoCameraController.swift */; };
-		2C9683E01D4AD0E0004AB14F /* GoNoGo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */; };
-		2C9683E21D4AD32B004AB14F /* GoNoGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */; };
 		2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD8DD41D45589C002A04FF /* Main.storyboard */; };
 		2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD29F751D484955004ACD01 /* PageViewController.swift */; };
 		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
@@ -25,14 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C9B96331D49B1E50072782E /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		1C9B96371D4AD6C50072782E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		1CFFEB191D45A378006A2D14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		2C2F75701D48350400EEC923 /* GoCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoCameraController.swift; sourceTree = "<group>"; };
-		2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoNoGo.storyboard; sourceTree = "<group>"; };
-		2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoNoGoViewController.swift; sourceTree = "<group>"; };
 		2CCD8DD51D45589C002A04FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CD29F751D484955004ACD01 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2CFC0B691D453433006EED5A /* GoNoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 				1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */,
 				1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */,
 				1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */,
+				1C9B96341D49B1E50072782E /* FirebaseStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +97,8 @@
 				2CFC0B781D453434006EED5A /* Info.plist */,
 				1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */,
 				2C2F75701D48350400EEC923 /* GoCameraController.swift */,
-				2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */,
-				2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */,
+				1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */,
+				1C9B96371D4AD6C50072782E /* ProfileViewController.swift */,
 			);
 			path = GoNoGo;
 			sourceTree = "<group>";
@@ -112,6 +115,7 @@
 		FBA3C329D3131445080579E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C9B96331D49B1E50072782E /* FirebaseStorage.framework */,
 				1CFFEB191D45A378006A2D14 /* Bolts.framework */,
 				1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */,
 				1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */,
@@ -182,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C9683E01D4AD0E0004AB14F /* GoNoGo.storyboard in Resources */,
 				2CFC0B771D453434006EED5A /* LaunchScreen.storyboard in Resources */,
 				2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */,
 				2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */,
@@ -245,8 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */,
 				2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */,
-				2C9683E21D4AD32B004AB14F /* GoNoGoViewController.swift in Sources */,
+				1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */,
 				2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */,
 				2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */,
 				2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */,
@@ -367,6 +371,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
 				);
 				INFOPLIST_FILE = GoNoGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -385,6 +390,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
 				);
 				INFOPLIST_FILE = GoNoGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
