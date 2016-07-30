@@ -13,12 +13,11 @@ import FirebaseAuth
 import SwiftCompressor
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
-    var myArray = [String]()
+    var myArray = [AnyObject]()
     let reuseIdentifier = "cell"
     
     let database = FIRDatabase.database().reference()
     
-    @IBOutlet weak var image: UIImageView!
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -32,30 +31,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                             let userId = snapshot.key
                             for (x, imageKey) in  snapshot.children.enumerate()
                             {
-                                if imageKey.hasChildren(){
-                                    var lines = ""
-                                    var index = 0
-                                    for i in imageKey.children{
-                                        lines.appendContentsOf(i.value!!)
+                                self.myArray.append(imageKey)
 
-                                    }
-                                    
-                                    
-                                    do  { let imageData = try NSData(base64EncodedString: lines ,
-                                        options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)?.decompress()
-                                        
-                                        let decodedImage = UIImage(data:imageData!)
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            self.image.image = decodedImage
-                                        })
-                                        
-                                        break;
-                                        
-                                    }
-                                    catch{}
-                                    
-                                    
-                                }
                                 
                             }
                     })
@@ -82,6 +59,29 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
+
+        let images = myArray[indexPath.row]
+
+            var lines = ""
+            for i in images.children{
+                lines.appendContentsOf(i.value!!)
+                
+            }
+            
+            
+            do  { let imageData = try NSData(base64EncodedString: lines ,
+                                             options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)?.decompress()
+                
+                let decodedImage = UIImage(data:imageData!)
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.myImageView.image = decodedImage
+                })
+                
+                
+            }
+            catch{}
+            
+            
 
         return cell
         
