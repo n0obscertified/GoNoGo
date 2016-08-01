@@ -11,15 +11,18 @@ import UIKit
 import SwiftCompressor
 class GoImage {
     
+    let ImageKey:String
+    
     var Image:UIImage = UIImage()
     
     var string:String = ""
     
     var data:NSData = NSData()
     
-    init(lines:[String]){
+    init(lines:[String], key:String){
         
       
+        self.ImageKey = key
             
             lines.forEach({ (line) in
                 self.string += line
