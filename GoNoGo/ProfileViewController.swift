@@ -11,8 +11,12 @@ import FirebaseStorage
 import Firebase
 import FirebaseAuth
 import SwiftCompressor
-class ProfileViewController: UIViewController, UICollectionViewDataSource{
+import FBSDKLoginKit
 
+class ProfileViewController: UIViewController, FBSDKLoginButtonDelegate, UICollectionViewDataSource{
+
+    @IBOutlet weak var FBLogIn: FBSDKLoginButton!
+    
     @IBOutlet weak var myCollectionView: UICollectionView!
     var myArray = [AnyObject]()
     let reuseIdentifier = "cell"
@@ -22,13 +26,13 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.FBLogIn.delegate = self
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-
             FIRAuth.auth()?.addAuthStateDidChangeListener(
                 {
                     (auth, user) in
@@ -50,15 +54,46 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
                     }
             })
         
-
-        
-        //self.myCollectionView.reloadData()
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
+        let accessToken = FBSDKAccessToken.currentAccessToken()
+        
+        let facebookRequest: FBSDKGraphRequest! = FBSDKGraphRequest(graphPath: "/me/permissions ", parameters: ["fields": "id, email"], HTTPMethod: "DELETE")
+        
+        facebookRequest.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+            
+            if(error == nil && result != nil){
+                print("Permission successfully revoked. This app will no longer post to Facebook on your behalf.")
+                print("result = \(result)")
+            } else {
+                print(error.localizedDescription)
+                if let error: NSError = error {
+                    if let errorString = error.userInfo["error"] as? String {
+                        print("errorString variable equals: \(errorString)")
+                    }
+                } else {
+                    print("No value for error key")
+                }
+            }
+        }
+
+        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
+        
+        self.navigationController!.pushViewController(mainViewController, animated: true)
+        
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        print("nothing here...")
     }
     
     
