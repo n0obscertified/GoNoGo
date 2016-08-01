@@ -18,6 +18,8 @@
 		2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F75701D48350400EEC923 /* GoCameraController.swift */; };
 		2C9683E51D4ADA81004AB14F /* GoNoGo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9683E31D4ADA81004AB14F /* GoNoGo.storyboard */; };
 		2C9683E61D4ADA81004AB14F /* GoNoGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9683E41D4ADA81004AB14F /* GoNoGoViewController.swift */; };
+		2C9683E81D4B09FA004AB14F /* Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9683E71D4B09FA004AB14F /* Chunk.swift */; };
+		2C9683EC1D4EC598004AB14F /* GoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9683EB1D4EC598004AB14F /* GoImage.swift */; };
 		2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD8DD41D45589C002A04FF /* Main.storyboard */; };
 		2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD29F751D484955004ACD01 /* PageViewController.swift */; };
 		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 		2C2F75701D48350400EEC923 /* GoCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoCameraController.swift; sourceTree = "<group>"; };
 		2C9683E31D4ADA81004AB14F /* GoNoGo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoNoGo.storyboard; sourceTree = "<group>"; };
 		2C9683E41D4ADA81004AB14F /* GoNoGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoNoGoViewController.swift; sourceTree = "<group>"; };
+		2C9683E71D4B09FA004AB14F /* Chunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chunk.swift; sourceTree = "<group>"; };
+		2C9683EB1D4EC598004AB14F /* GoImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoImage.swift; sourceTree = "<group>"; };
 		2CCD8DD51D45589C002A04FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CD29F751D484955004ACD01 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2CFC0B691D453433006EED5A /* GoNoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,8 @@
 				2C2F75701D48350400EEC923 /* GoCameraController.swift */,
 				1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */,
 				1C9B96371D4AD6C50072782E /* ProfileViewController.swift */,
+				2C9683E71D4B09FA004AB14F /* Chunk.swift */,
+				2C9683EB1D4EC598004AB14F /* GoImage.swift */,
 			);
 			path = GoNoGo;
 			sourceTree = "<group>";
@@ -258,10 +264,12 @@
 				2C9683E61D4ADA81004AB14F /* GoNoGoViewController.swift in Sources */,
 				1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */,
 				2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */,
+				2C9683EC1D4EC598004AB14F /* GoImage.swift in Sources */,
 				1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */,
 				2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */,
 				2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */,
 				2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */,
+				2C9683E81D4B09FA004AB14F /* Chunk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,32 +15,39 @@ class GoNoGo: UIViewController
     
     var database = FIRDatabase.database().reference()
     
+    var MostRecentuploads:[GoImage] = [GoImage]()
+    
     override func viewDidLoad()
     {
-//        FIRAuth.auth()?.addAuthStateDidChangeListener(
-//            {
-//                (auth, user) in
-//                
-//                
-//                if let currentUsr  = user
-//                {
-//                
-//                    self.database.child("Users").observeEventType(.Value, withBlock: { (snapshot) in
-//                        
-//                       var get = snapshot.value![currentUsr.uid] as! [String]
-//                        
-//                    })
-//                    
-//                    self.database.observeEventType(FIRDataEventType.ChildChanged,withBlock: {
-//                        snapshot in
-//                        //print(snapshot.c)
-//                    })
-//                }
-//                
-//                
-//        })
-
-        
         super.viewDidLoad()
+        
+        
+        self.database.child("Users").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            (snapshot) in
+        
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
+            {
+            
+          let temp = snapshot.children.allObjects
+            var tempLines = [String]()
+            for (_,value) in (temp.last?.children.enumerate())!
+            {
+                 tempLines.append( value.value!!)
+            }
+            
+            let image = GoImage(lines: tempLines)
+             self.MostRecentuploads.append(image)
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                      self.Image.image = self.MostRecentuploads.first?.Image
+                })
+            }
+            
+        })
+        
+      
+        
     }
+    
+
 }
