@@ -11,8 +11,9 @@ import FirebaseStorage
 import Firebase
 import FirebaseAuth
 import SwiftCompressor
-class ProfileViewController: UIViewController, UICollectionViewDataSource {
+class ProfileViewController: UIViewController, UICollectionViewDataSource{
 
+    @IBOutlet weak var myCollectionView: UICollectionView!
     var myArray = [AnyObject]()
     let reuseIdentifier = "cell"
     
@@ -21,34 +22,46 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        FIRAuth.auth()?.addAuthStateDidChangeListener(
-            {
-                (auth, user) in
-                if let currentUsr  = user
-                {
-                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), {
-                        self.database.child("Users").observeEventType(.ChildAdded, withBlock: { snapshot in
-                            let userId = snapshot.key
-                            for (x, imageKey) in  snapshot.children.enumerate()
-                            {
-                                self.myArray.append(imageKey)
-
-                                
-                            }
-                    })
-
-
-                        
-                    })
-                }
-        })
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+            FIRAuth.auth()?.addAuthStateDidChangeListener(
+                {
+                    (auth, user) in
+                    if let currentUsr  = user
+                    {
+                        
+                        self.database.child("Users").child((user?.uid)!).observeEventType(.Value, withBlock: { snapshot in
+                            self.myArray = []
+                            print(user)
+                                let userId = snapshot.key
+                                for (x, imageKey) in  snapshot.children.enumerate()
+                                {
+
+                                        self.myArray.append(imageKey)
+                                    
+                                }
+                            self.myCollectionView.reloadData()
+                        })
+                    }
+            })
+        
+
+        
+        //self.myCollectionView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -60,30 +73,32 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
 
+        cell.layer.borderColor = UIColor.grayColor().CGColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 5
+        
         let images = myArray[indexPath.row]
+
 
             var lines = ""
             for i in images.children{
                 lines.appendContentsOf(i.value!!)
                 
             }
-            
-            
+   
             do  { let imageData = try NSData(base64EncodedString: lines ,
                                              options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)?.decompress()
                 
                 let decodedImage = UIImage(data:imageData!)
-                dispatch_async(dispatch_get_main_queue(), {
-                    cell.myImageView.image = decodedImage
-                })
-                
-                
-            }
-            catch{}
-            
-            
 
+                cell.myImageView.image = decodedImage
+
+            }
+            
+            catch{}
+        
         return cell
+        
         
     }
 
