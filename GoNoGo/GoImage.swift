@@ -6,6 +6,33 @@
 //  Copyright © 2016 Ismael. All rights reserved.
 //
 
+extension Array {
+    var  ToString:String
+    {
+        var tempString = ""
+        self.forEach({ (element) in
+            tempString += String(element)
+        })
+        return tempString
+        
+    }
+}
+
+extension NSData{
+    var ToUIImage:UIImage
+    {
+    
+        if self.length == 0
+        {
+            return UIImage()
+        }
+        else
+        {
+            return UIImage(data:self)!
+        }
+    }
+}
+
 import Foundation
 import UIKit
 import SwiftCompressor
@@ -19,29 +46,27 @@ class GoImage {
     
     var data:NSData = NSData()
     
-    init(lines:[String], key:String){
-        
-      
+    var Owner:String
+
+    
+    init(lines:[String], key:String,owner:String)
+    {
         self.ImageKey = key
-            
-            lines.forEach({ (line) in
-                self.string += line
-            })
-            
-            do {
-             self.data =  NSData(base64EncodedString: self.string ,
-                           options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+        self.Owner = owner
+        self.string = lines.ToString
+        do
+        {
+            self.data =  NSData(base64EncodedString: self.string,
+                                    options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
               
-                self.data = try self.data.decompress()!
+            self.data = try self.data.decompress()!
                
-                self.Image = UIImage(data:self.data)!
+            self.Image = self.data.ToUIImage
                 
-            }catch{
+        }catch
+        {
                 
-            }
-            
-        
-        
+        }
     }
     
 }

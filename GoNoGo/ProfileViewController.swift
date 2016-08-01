@@ -35,14 +35,14 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
                     if let currentUsr  = user
                     {
                         
-                        self.database.child("Users").child((user?.uid)!).observeEventType(.Value, withBlock: { snapshot in
+                        self.database.child("Users").child(currentUsr.uid).child("Images").observeEventType(.Value, withBlock: { snapshot in
                             self.myArray = []
-                            print(user)
-                                let userId = snapshot.key
+                         
+                            
                                 for (x, imageKey) in  snapshot.children.enumerate()
                                 {
 
-                                        self.myArray.append(imageKey)
+                                   self.myArray.append(imageKey)
                                     
                                 }
                             self.myCollectionView.reloadData()
@@ -81,12 +81,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
 
 
             var lines = ""
-            for i in images.children{
+            for i in images.children
+            {
                 lines.appendContentsOf(i.value!!)
                 
             }
    
-            do  { let imageData = try NSData(base64EncodedString: lines ,
+            do
+            {
+                
+                let imageData = try NSData(base64EncodedString: lines ,
                                              options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)?.decompress()
                 
                 let decodedImage = UIImage(data:imageData!)
