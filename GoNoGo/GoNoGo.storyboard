@@ -23,9 +23,39 @@
                                     <constraint firstAttribute="width" constant="290" id="fGr-3U-v6I"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Gw-hE-npO">
+                                <rect key="frame" x="184" y="492" width="232" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0f-ff-oo0">
+                                        <rect key="frame" x="91" y="20" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8q-dN-Wxl">
+                                        <rect key="frame" x="169" y="20" width="40" height="30"/>
+                                        <state key="normal" title="NoGo"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-42-f0r">
+                                        <rect key="frame" x="28" y="20" width="30" height="30"/>
+                                        <state key="normal" title="Go"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bw9-42-f0r" firstAttribute="leading" secondItem="9Gw-hE-npO" secondAttribute="leading" constant="28" id="1q8-2f-H1m"/>
+                                    <constraint firstItem="r0f-ff-oo0" firstAttribute="leading" secondItem="bw9-42-f0r" secondAttribute="trailing" constant="33" id="32Y-VN-lIU"/>
+                                    <constraint firstItem="v8q-dN-Wxl" firstAttribute="leading" secondItem="r0f-ff-oo0" secondAttribute="trailing" constant="32" id="5Xf-Vq-a7h"/>
+                                    <constraint firstItem="r0f-ff-oo0" firstAttribute="baseline" secondItem="v8q-dN-Wxl" secondAttribute="baseline" id="CqC-y8-N7z"/>
+                                    <constraint firstItem="bw9-42-f0r" firstAttribute="centerY" secondItem="9Gw-hE-npO" secondAttribute="centerY" id="Y6Z-tI-XLM"/>
+                                    <constraint firstAttribute="trailing" secondItem="v8q-dN-Wxl" secondAttribute="trailing" constant="23" id="h59-cz-HLP"/>
+                                    <constraint firstItem="bw9-42-f0r" firstAttribute="baseline" secondItem="r0f-ff-oo0" secondAttribute="baseline" id="s3m-zc-IvM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Gw-hE-npO" firstAttribute="centerX" secondItem="dnN-2C-EEu" secondAttribute="centerX" id="4TR-2c-o5Y"/>
+                            <constraint firstItem="wG0-pY-vDf" firstAttribute="top" secondItem="9Gw-hE-npO" secondAttribute="bottom" constant="38" id="59O-cQ-ldc"/>
+                            <constraint firstItem="9Gw-hE-npO" firstAttribute="top" secondItem="dnN-2C-EEu" secondAttribute="bottom" constant="22" id="8ea-1T-XAu"/>
                             <constraint firstItem="dnN-2C-EEu" firstAttribute="centerX" secondItem="Ul1-3y-IkW" secondAttribute="centerX" id="CGl-6n-Vjv"/>
                             <constraint firstItem="dnN-2C-EEu" firstAttribute="centerY" secondItem="Ul1-3y-IkW" secondAttribute="centerY" id="ebN-zz-fx5"/>
                             <constraint firstItem="dnN-2C-EEu" firstAttribute="top" secondItem="q7W-Cj-8Ug" secondAttribute="bottom" constant="109" id="srf-53-LBO"/>
