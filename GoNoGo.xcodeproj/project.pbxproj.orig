@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C9B96341D49B1E50072782E /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B96331D49B1E50072782E /* FirebaseStorage.framework */; };
+		1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */; };
+		1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96371D4AD6C50072782E /* ProfileViewController.swift */; };
+		1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB191D45A378006A2D14 /* Bolts.framework */; };
+		1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */; };
+		1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */; };
+		1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */; };
+		25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */; };
+		2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F75701D48350400EEC923 /* GoCameraController.swift */; };
+		2C9683E01D4AD0E0004AB14F /* GoNoGo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */; };
+		2C9683E21D4AD32B004AB14F /* GoNoGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */; };
+		2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD8DD41D45589C002A04FF /* Main.storyboard */; };
+		2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD29F751D484955004ACD01 /* PageViewController.swift */; };
+		2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6C1D453433006EED5A /* AppDelegate.swift */; };
+		2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC0B6E1D453434006EED5A /* ViewController.swift */; };
+		2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B731D453434006EED5A /* Assets.xcassets */; };
+		2CFC0B771D453434006EED5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */; };
+		2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C9B96331D49B1E50072782E /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		1C9B96371D4AD6C50072782E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		1CFFEB191D45A378006A2D14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		2C2F75701D48350400EEC923 /* GoCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoCameraController.swift; sourceTree = "<group>"; };
+		2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoNoGo.storyboard; sourceTree = "<group>"; };
+		2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoNoGoViewController.swift; sourceTree = "<group>"; };
+		2CCD8DD51D45589C002A04FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CD29F751D484955004ACD01 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		2CFC0B691D453433006EED5A /* GoNoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFC0B6C1D453433006EED5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2CFC0B6E1D453434006EED5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CFC0B731D453434006EED5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2CFC0B761D453434006EED5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2CFC0B781D453434006EED5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNoGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo.release.xcconfig"; sourceTree = "<group>"; };
+		A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNoGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo.debug.xcconfig"; sourceTree = "<group>"; };
+		E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoNoGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CFC0B661D453433006EED5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25061BD56632D0CB96E91650 /* Pods_GoNoGo.framework in Frameworks */,
+				1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */,
+				1CFFEB201D45A378006A2D14 /* FBSDKShareKit.framework in Frameworks */,
+				1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */,
+				1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */,
+				1C9B96341D49B1E50072782E /* FirebaseStorage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CFC0B601D453433006EED5A = {
+			isa = PBXGroup;
+			children = (
+				2CFC0B6B1D453433006EED5A /* GoNoGo */,
+				2CFC0B6A1D453433006EED5A /* Products */,
+				813977D36F54121B38CA3C49 /* Pods */,
+				FBA3C329D3131445080579E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2CFC0B6A1D453433006EED5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CFC0B691D453433006EED5A /* GoNoGo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CFC0B6B1D453433006EED5A /* GoNoGo */ = {
+			isa = PBXGroup;
+			children = (
+				2CD29F751D484955004ACD01 /* PageViewController.swift */,
+				2CCD8DD41D45589C002A04FF /* Main.storyboard */,
+				2CFC0B7E1D453775006EED5A /* GoogleService-Info.plist */,
+				2CFC0B6C1D453433006EED5A /* AppDelegate.swift */,
+				2CFC0B6E1D453434006EED5A /* ViewController.swift */,
+				2CFC0B731D453434006EED5A /* Assets.xcassets */,
+				2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */,
+				2CFC0B781D453434006EED5A /* Info.plist */,
+				1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */,
+				2C2F75701D48350400EEC923 /* GoCameraController.swift */,
+<<<<<<< HEAD
+				2C9683DF1D4AD0E0004AB14F /* GoNoGo.storyboard */,
+				2C9683E11D4AD32B004AB14F /* GoNoGoViewController.swift */,
+=======
+				1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */,
+				1C9B96371D4AD6C50072782E /* ProfileViewController.swift */,
+>>>>>>> d2bf8f596d11aa40ef1e1dff52551cb775aff68b
+			);
+			path = GoNoGo;
+			sourceTree = "<group>";
+		};
+		813977D36F54121B38CA3C49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */,
+				594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBA3C329D3131445080579E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C9B96331D49B1E50072782E /* FirebaseStorage.framework */,
+				1CFFEB191D45A378006A2D14 /* Bolts.framework */,
+				1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */,
+				1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */,
+				1CFFEB1C1D45A378006A2D14 /* FBSDKShareKit.framework */,
+				E22428FD7DF20600EB37AA94 /* Pods_GoNoGo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CFC0B681D453433006EED5A /* GoNoGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CFC0B7B1D453434006EED5A /* Build configuration list for PBXNativeTarget "GoNoGo" */;
+			buildPhases = (
+				531B0C080585100D9A440C07 /* [CP] Check Pods Manifest.lock */,
+				2CFC0B651D453433006EED5A /* Sources */,
+				2CFC0B661D453433006EED5A /* Frameworks */,
+				2CFC0B671D453433006EED5A /* Resources */,
+				50B1D69B8AF0931351C50ECF /* [CP] Embed Pods Frameworks */,
+				C3FDD22C3E2982190961B2FD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoNoGo;
+			productName = GoNoGo;
+			productReference = 2CFC0B691D453433006EED5A /* GoNoGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CFC0B611D453433006EED5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Ismael;
+				TargetAttributes = {
+					2CFC0B681D453433006EED5A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2CFC0B641D453433006EED5A /* Build configuration list for PBXProject "GoNoGo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2CFC0B601D453433006EED5A;
+			productRefGroup = 2CFC0B6A1D453433006EED5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CFC0B681D453433006EED5A /* GoNoGo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CFC0B671D453433006EED5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C9683E01D4AD0E0004AB14F /* GoNoGo.storyboard in Resources */,
+				2CFC0B771D453434006EED5A /* LaunchScreen.storyboard in Resources */,
+				2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */,
+				2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */,
+				2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50B1D69B8AF0931351C50ECF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		531B0C080585100D9A440C07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3FDD22C3E2982190961B2FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoNoGo/Pods-GoNoGo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CFC0B651D453433006EED5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */,
+				2CFC0B6F1D453434006EED5A /* ViewController.swift in Sources */,
+<<<<<<< HEAD
+				2C9683E21D4AD32B004AB14F /* GoNoGoViewController.swift in Sources */,
+=======
+				1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */,
+>>>>>>> d2bf8f596d11aa40ef1e1dff52551cb775aff68b
+				2C2F75711D48350400EEC923 /* GoCameraController.swift in Sources */,
+				2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */,
+				2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2CCD8DD41D45589C002A04FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CCD8DD51D45589C002A04FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CFC0B761D453434006EED5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CFC0B791D453434006EED5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2CFC0B7A1D453434006EED5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CFC0B7C1D453434006EED5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A018F7829D81C1485191A2B9 /* Pods-GoNoGo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
+				);
+				INFOPLIST_FILE = GoNoGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GoNoGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoNoGo/Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		2CFC0B7D1D453434006EED5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594E10AE6DA71CC7EA95741E /* Pods-GoNoGo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
+				);
+				INFOPLIST_FILE = GoNoGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GoNoGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoNoGo/Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CFC0B641D453433006EED5A /* Build configuration list for PBXProject "GoNoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CFC0B791D453434006EED5A /* Debug */,
+				2CFC0B7A1D453434006EED5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CFC0B7B1D453434006EED5A /* Build configuration list for PBXNativeTarget "GoNoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CFC0B7C1D453434006EED5A /* Debug */,
+				2CFC0B7D1D453434006EED5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CFC0B611D453433006EED5A /* Project object */;
+}

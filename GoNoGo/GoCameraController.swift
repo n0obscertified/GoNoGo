@@ -11,6 +11,7 @@ import ALCameraViewController
 import FirebaseAuth
 import FirebaseDatabase
 import SwiftCompressor
+
 class GoCameraController: CameraViewController {
     
     let databse = FIRDatabase.database().reference()
