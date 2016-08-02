@@ -11,16 +11,13 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
+    private lazy var orderedViewControllers: [UIViewController] = {
         return [
             self.newController("Main",page: "Camera"),
             self.newController("GoNoGo",page: "GoNoGo"),
             self.newController("Main",page: "Profile"),
-           ]
+            ]
     }()
-    
-
-    var index = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,29 +30,46 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
-   func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
-   {
-     if index > 0
-     {
-        index = index - 1
-     }else{
-        index = self.orderedViewControllers.count - 1
-    }
-    
-     return  self.orderedViewControllers[index]
-    }
-    
-   func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
-   {
-    if index < self.orderedViewControllers.count - 1
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
     {
-        index += 1
-    }else
-    {
-        index = 0
+        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+            return nil
+        }
+        
+        let previousIndex = viewControllerIndex - 1
+        
+        guard previousIndex >= 0 else
+        {
+            return self.orderedViewControllers.last
+        }
+        
+        guard orderedViewControllers.count > previousIndex else
+        {
+            return nil
+        }
+        
+        return orderedViewControllers[previousIndex]
+        
     }
     
-     return self.orderedViewControllers[index]
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
+    {
+        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderedViewControllers.count
+        
+        guard orderedViewControllersCount != nextIndex else {
+            return self.orderedViewControllers.first
+        }
+        
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[nextIndex]
     }
     
     private func newController(storyBoard:String,page: String) -> UIViewController {
