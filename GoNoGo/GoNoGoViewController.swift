@@ -20,31 +20,33 @@ class GoNoGo: UIViewController
     var user: FIRUser?
     
     @IBAction func Go(sender: UIButton) {
-  
-       
-        var post: [String:AnyObject]
+        
         
         let image = self.MostRecentuploads.removeAtIndex(self.MostRecentuploads.indexOf({ (goImage) -> Bool in
-                     return goImage.Image == self.Image.image!
-                    })!)
-
-    
+            return goImage.Image == self.Image.image!
+        })!)
+        
+        
         
         self.Image.image = self.MostRecentuploads.first?.Image
         
         let likeRef = self.database.child("Opinions").child(image.ImageKey).ref
         
         likeRef.runTransactionBlock({ (data:FIRMutableData) -> FIRTransactionResult in
-        
+            
             if var post =  data.value as? [String:AnyObject], let user = FIRAuth.auth()?.currentUser?.uid{
                 
                 
-                var nogoscore = post["NoGo"]! as! Int
-                var goscore = post["Go"]! as! Int + 1
-                var meanscore = (goscore + nogoscore)/2
-                var judges = post["judges"] as? [String:Bool] ?? [user:true]
+                let nogoscore = post["NoGo"]! as! Int
+                let goscore = post["Go"]! as! Int + 1
+                let meanscore = Double(goscore +  nogoscore)/2
+                var judges = post["judges"] as? [String:Bool] ?? [:]
                 
-                var newPost =
+                if !judges.keys.contains(user){
+                    judges[user] = true
+                }
+                
+                let newPost =
                     [
                         "Go": goscore,
                         "Mean": meanscore,
@@ -52,22 +54,21 @@ class GoNoGo: UIViewController
                         "Judges": judges
                 ]
                 
-//                post["Go"] = post["Go"]! + 1
-//                post["opinions"] = user
-                print(data)
-                data.value = post
+                data.value = newPost
             }
             
             return FIRTransactionResult.successWithValue(data)
-        })
+            })
         {
             (error, committed, snapshot) in
             print(error)
         }
         
-
+        
         
     }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -78,44 +79,41 @@ class GoNoGo: UIViewController
                 
                 self.user = user
                 
-                self.database.child("Users").observeEventType(.ChildAdded, withBlock: {
+                
+                self.database.child("Users").observeEventType(.Value, withBlock: {
                     (snapshot) in
                     
-                    if snapshot.key != user?.uid
-                    {
-                        
+                   
                         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
                         {
+                            var tempImages:[GoImage] = self.MostRecentuploads
                             
-                            if let value = snapshot.value
+                            for (_, item) in  snapshot.children.enumerate() where item.key!! != user?.uid
                             {
-                               
-                                let temp = value["Images"] as! [String:[String]]
-                           
-                            
-                              
-                                var tempImages:[GoImage] = self.MostRecentuploads
                                 
-                                for (_,dictionaryItem) in temp.enumerate()
+                                
+                                if let images = item.value["Images"] as? [String:[String]]
                                 {
-                                   
-                                    if tempImages.contains({image in return image.ImageKey == dictionaryItem.0})
-                                    {
-                                        continue
-                                    }
                                     
-                                    tempImages.append(GoImage(lines: dictionaryItem.1, key: dictionaryItem.0, owner: snapshot.key ))
-                                }
-
-                                dispatch_async(dispatch_get_main_queue())
-                                {
-                                    self.MostRecentuploads = tempImages
-                                    self.Image.image = self.MostRecentuploads.first?.Image
+                                    for (_,dictionaryItem) in images.enumerate()
+                                    {
+                                        
+                                        if tempImages.contains({image in return item.key == dictionaryItem.0})
+                                        {
+                                            continue
+                                        }
+                                        
+                                        tempImages.append(GoImage(lines: dictionaryItem.1, key: dictionaryItem.0, owner: snapshot.key ))
+                                    }
                                 }
                             }
-                        }
-                        
-                        
+                            
+                            dispatch_async(dispatch_get_main_queue())
+                            {
+                                self.MostRecentuploads = tempImages
+                                self.Image.image = self.MostRecentuploads.first?.Image
+                            }
+
                     }
                     
                 })
