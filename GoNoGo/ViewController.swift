@@ -42,28 +42,42 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     private func LogInAndNavigate()
     {
-        FIRAuth.auth()?.signInWithEmail(self.userEmail, password: self.userPassword, completion: { (user, err) in
-            if user != nil{
+        if(self.userEmail.isEmpty || self.userPassword.isEmpty){
+            let alertController = UIAlertController(title: "Uh oh!", message:"Please enter all the fields to Log In", preferredStyle: .Alert)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                alertController.dismissViewControllerAnimated(true, completion: nil)
                 
-                let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
-                print("navigating to the next view controller from view did load")
-                
-                self.navigationController!.showViewController(cameraViewController, sender: self)
             }
-            else{
-                let alertController = UIAlertController(title: "Uh oh!", message: err?.localizedDescription, preferredStyle: .Alert)
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
-                    UIAlertAction in
-                    alertController.dismissViewControllerAnimated(true, completion: nil)
+            alertController.addAction(okAction)
+        }
+        else {
+            FIRAuth.auth()?.signInWithEmail(self.userEmail, password: self.userPassword, completion: { (user, err) in
+                if user != nil{
+                    
+                    let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
+                    print("navigating to the next view controller from view did load")
+                    
+                    self.navigationController!.showViewController(cameraViewController, sender: self)
                 }
-                
-                alertController.addAction(okAction)
-                self.logInButton.hidden = true
-                self.signUpButton.hidden = false;
-            }
-        })
+                else{
+                    let alertController = UIAlertController(title: "Uh oh!", message: err?.localizedDescription, preferredStyle: .Alert)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                        UIAlertAction in
+                        alertController.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    
+                    alertController.addAction(okAction)
+                    self.logInButton.hidden = true
+                    self.signUpButton.hidden = false;
+                }
+            })
+        }
+
     }
     
     
@@ -123,21 +137,22 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-
-            print("User is already loggen in....")
-            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
-            print("navigating to the next view controller from view did load")
-            
-            self.navigationController!.showViewController(cameraViewController, sender: self)
-            
-        }
-        else
-        {
-            self.FbLogIn.readPermissions = ["public_profile", "email"]
-            
-        }
+        self.FbLogIn.readPermissions = ["public_profile", "email"]
+//        if (FBSDKAccessToken.currentAccessToken() != nil)
+//        {
+//
+//            print("User is already loggen in....")
+//            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
+//            print("navigating to the next view controller from view did load")
+//            
+//            self.navigationController!.showViewController(cameraViewController, sender: self)
+//            
+//        }
+//        else
+//        {
+//            self.FbLogIn.readPermissions = ["public_profile", "email"]
+//            
+//        }
         
     }
     

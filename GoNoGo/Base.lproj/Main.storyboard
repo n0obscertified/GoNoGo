@@ -137,21 +137,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPg-vU-baB">
-                                <rect key="frame" x="20" y="20" width="135" height="30"/>
+                                <rect key="frame" x="233" y="64" width="135" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="9en-Ih-ypG"/>
+                                    <constraint firstAttribute="width" constant="135" id="v4n-Fp-g8i"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dj8-nm-rHf" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="445" y="20" width="135" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="URb-Sq-VxN"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Log Out!"/>
+                                <connections>
+                                    <action selector="LogOut:" destination="L5X-Al-DOq" eventType="touchUpInside" id="Tvy-gB-kzM"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-1Z-Ptz">
-                                <rect key="frame" x="0.0" y="58" width="595" height="542"/>
+                                <rect key="frame" x="0.0" y="117" width="595" height="483"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mB2-DW-bIu">
                                     <size key="itemSize" width="170" height="170"/>
@@ -188,21 +184,26 @@
                                     <outlet property="dataSource" destination="L5X-Al-DOq" id="5Lq-n0-lFc"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ1-5p-6bk">
+                                <rect key="frame" x="262" y="20" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="top" secondItem="uPg-vU-baB" secondAttribute="bottom" constant="8" symbolic="YES" id="7im-Nl-VFc"/>
-                            <constraint firstItem="uPg-vU-baB" firstAttribute="baseline" secondItem="Dj8-nm-rHf" secondAttribute="baseline" id="XSH-iu-BHq"/>
-                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="bottom" secondItem="fdZ-kf-xhd" secondAttribute="top" id="Zaq-Bi-Eid"/>
-                            <constraint firstItem="Dj8-nm-rHf" firstAttribute="trailing" secondItem="4xS-Ui-lpj" secondAttribute="trailingMargin" id="b0f-pS-qFj"/>
-                            <constraint firstItem="uPg-vU-baB" firstAttribute="top" secondItem="DwX-OU-ZLx" secondAttribute="bottom" id="e6x-vI-YBm"/>
-                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="leading" secondItem="4xS-Ui-lpj" secondAttribute="leading" id="fsS-GF-ucH"/>
-                            <constraint firstItem="uPg-vU-baB" firstAttribute="leading" secondItem="4xS-Ui-lpj" secondAttribute="leadingMargin" id="m1c-Bi-PCV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mhg-1Z-Ptz" secondAttribute="trailing" constant="-15" id="npN-Vc-9dr"/>
+                            <constraint firstItem="xQ1-5p-6bk" firstAttribute="centerX" secondItem="uPg-vU-baB" secondAttribute="centerX" id="5VE-dT-Ot3"/>
+                            <constraint firstItem="xQ1-5p-6bk" firstAttribute="top" secondItem="DwX-OU-ZLx" secondAttribute="bottom" id="Ivz-Ke-CoP"/>
+                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="leading" secondItem="4xS-Ui-lpj" secondAttribute="leading" id="PSg-HG-uxU"/>
+                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="top" secondItem="uPg-vU-baB" secondAttribute="bottom" constant="23" id="esF-g1-caQ"/>
+                            <constraint firstItem="uPg-vU-baB" firstAttribute="top" secondItem="xQ1-5p-6bk" secondAttribute="bottom" constant="23" id="o1U-Ke-Oz4"/>
+                            <constraint firstItem="xQ1-5p-6bk" firstAttribute="centerX" secondItem="4xS-Ui-lpj" secondAttribute="centerX" id="plI-Bx-oEQ"/>
+                            <constraint firstItem="mhg-1Z-Ptz" firstAttribute="bottom" secondItem="fdZ-kf-xhd" secondAttribute="top" id="rva-cY-cYC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mhg-1Z-Ptz" secondAttribute="trailing" constant="-15" id="x7e-vo-0P5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="FBLogIn" destination="Dj8-nm-rHf" id="xXc-j2-jUB"/>
                         <outlet property="myCollectionView" destination="mhg-1Z-Ptz" id="ygb-zp-B52"/>
                     </connections>
                 </viewController>
