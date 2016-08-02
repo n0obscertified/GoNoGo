@@ -10,5 +10,6 @@ import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var score: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
 }

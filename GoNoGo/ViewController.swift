@@ -138,21 +138,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
         self.FbLogIn.readPermissions = ["public_profile", "email"]
-//        if (FBSDKAccessToken.currentAccessToken() != nil)
-//        {
-//
-//            print("User is already loggen in....")
-//            let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
-//            print("navigating to the next view controller from view did load")
-//            
-//            self.navigationController!.showViewController(cameraViewController, sender: self)
-//            
-//        }
-//        else
-//        {
-//            self.FbLogIn.readPermissions = ["public_profile", "email"]
-//            
-//        }
         
     }
     

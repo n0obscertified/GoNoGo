@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     var myArray = [AnyObject]()
+    var scoreArray = [AnyObject]()
     let reuseIdentifier = "cell"
     
     let database = FIRDatabase.database().reference()
@@ -42,13 +43,24 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
                             self.myArray = []
                          
                             
-                                for (x, imageKey) in  snapshot.children.enumerate()
+                                for (_, imageKey) in  snapshot.children.enumerate()
                                 {
 
                                    self.myArray.append(imageKey)
                                     
                                 }
+                            
+                            
                             self.myCollectionView.reloadData()
+                        })
+                        
+                        self.database.child("Opinions").observeEventType(.ChildAdded, withBlock: { snapshot in
+                            self.scoreArray = []
+                            
+                            for(_, imageScoreKey) in snapshot.children.enumerate()
+                            {
+                                self.scoreArray.append(imageScoreKey)
+                            }
                         })
                     }
             })
@@ -57,22 +69,18 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     
     @IBAction func LogOut(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
+        
+        
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
-        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
         
+        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
         self.navigationController!.pushViewController(mainViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
-    {
-        print("nothing here...")
     }
     
     
@@ -92,7 +100,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         cell.layer.cornerRadius = 5
         
         let images = myArray[indexPath.row]
-
 
             var lines = ""
             for i in images.children
