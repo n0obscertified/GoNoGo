@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SQLite.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftCompressor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,7 +32,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>965E8CF3E134FFB749CFEBDA7905AECE</key>
+		<key>7248C73EA5FB2D668404120FC171B1DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A631E4B4B15B9F14ED5E3D8A35EB6F3A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF881F44202CDAC4960620AD3921FA49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E42097D62BDDA79D2BAE7EE09088F54B</key>
+		<key>FF51697B5A1E4730D3DAA003B5E47187</key>
 		<dict>
 			<key>primary</key>
 			<true/>

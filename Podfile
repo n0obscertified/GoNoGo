@@ -11,4 +11,6 @@ target 'GoNoGo' do
   pod 'Firebase/Auth'
   pod 'ALCameraViewController'
   pod 'SwiftCompressor'
+  pod 'SQLite.swift'
+  pod 'SwiftyJSON'
 end
