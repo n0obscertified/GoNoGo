@@ -49,24 +49,19 @@ class GoNoGo: UIViewController
 
         likeRef.runTransactionBlock({ (data:FIRMutableData) -> FIRTransactionResult in
             
-            if var post =  data.value as? [String:AnyObject], let user = FIRAuth.auth()?.currentUser?.uid{
+            if var post =  data.value as? [String:AnyObject]{
                 
                 
                 let nogoscore = post["NoGo"]! as! Int
                 let goscore = post["Go"]! as! Int + 1
-                let meanscore = Double(goscore +  nogoscore)/2
-                var judges = post["judges"] as? [String:Bool] ?? [:]
-                
-                if !judges.keys.contains(user){
-                    judges[user] = true
-                }
+                let meanscore = Double(goscore -  nogoscore)/2
+              
                 
                 let newPost =
                     [
                         "Go": goscore,
                         "Mean": meanscore,
-                        "NoGo": nogoscore,
-                        "Judges": judges
+                        "NoGo": nogoscore
                 ]
                 
                 data.value = newPost
@@ -101,8 +96,8 @@ class GoNoGo: UIViewController
                 do
                 {
                     try self.sqlDb!.run(Images.create { t in
-                        t.column(ImageKey, primaryKey: true)
-                        })
+                        
+                        t.column(ImageKey, primaryKey: true)})
                 }catch{
                     
                 }
@@ -143,8 +138,7 @@ class GoNoGo: UIViewController
                                             }
                                             
                                             // does temp image alredy contain greate dont add
-                                            if tempImages.contains(
-                                            { image in return image.ImageKey == value.0})
+                                            if tempImages.contains({ image in return image.ImageKey == value.0})
                                             {
                                                 continue;
                                             }
