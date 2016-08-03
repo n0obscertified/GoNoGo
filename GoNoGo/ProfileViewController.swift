@@ -56,14 +56,18 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                                     //let othersomething =
                                     //print(othersomething)
                                     
+                                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
                                     tempmyArray.append(GoImage(lines: something.arrayObject as! [String], key: imageKey.key!!, owner: currentUsr.uid))
+                                    
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            self.myArray = tempmyArray
+                                            self.myCollectionView.reloadData()
+                                        })
+
+                                    }
                                     
                                 }
                                 
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    self.myArray = tempmyArray
-                                    self.myCollectionView.reloadData()
-                                })
                                 
                                 
                             })
