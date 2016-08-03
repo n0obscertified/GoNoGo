@@ -10,6 +10,8 @@
 		1C9B96341D49B1E50072782E /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B96331D49B1E50072782E /* FirebaseStorage.framework */; };
 		1C9B96361D4AD4710072782E /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */; };
 		1C9B96381D4AD6C50072782E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B96371D4AD6C50072782E /* ProfileViewController.swift */; };
+		1CA6AED91D517BDA00BE1575 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6AED81D517BDA00BE1575 /* DetailsViewController.swift */; };
+		1CA6AEDB1D5195AB00BE1575 /* fire-vector.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6AEDA1D5195AB00BE1575 /* fire-vector.png */; };
 		1CFFEB1D1D45A378006A2D14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB191D45A378006A2D14 /* Bolts.framework */; };
 		1CFFEB1E1D45A378006A2D14 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */; };
 		1CFFEB1F1D45A378006A2D14 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFFEB1B1D45A378006A2D14 /* FBSDKLoginKit.framework */; };
@@ -34,6 +36,8 @@
 		1C9B96331D49B1E50072782E /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
 		1C9B96351D4AD4710072782E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		1C9B96371D4AD6C50072782E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1CA6AED81D517BDA00BE1575 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1CA6AEDA1D5195AB00BE1575 /* fire-vector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-vector.png"; path = "Assets.xcassets/fire-vector.imageset/fire-vector.png"; sourceTree = "<group>"; };
 		1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		1CFFEB191D45A378006A2D14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1CFFEB1A1D45A378006A2D14 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				2CFC0B6C1D453433006EED5A /* AppDelegate.swift */,
 				2CFC0B6E1D453434006EED5A /* ViewController.swift */,
 				2CFC0B731D453434006EED5A /* Assets.xcassets */,
+				1CA6AEDA1D5195AB00BE1575 /* fire-vector.png */,
 				2CFC0B751D453434006EED5A /* LaunchScreen.storyboard */,
 				2CFC0B781D453434006EED5A /* Info.plist */,
 				1CFFEB061D459AA2006A2D14 /* Bridging-Header.h */,
@@ -114,6 +119,7 @@
 				1C9B96371D4AD6C50072782E /* ProfileViewController.swift */,
 				2C9683E71D4B09FA004AB14F /* Chunk.swift */,
 				2C9683EB1D4EC598004AB14F /* GoImage.swift */,
+				1CA6AED81D517BDA00BE1575 /* DetailsViewController.swift */,
 			);
 			path = GoNoGo;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				2CFC0B7F1D453775006EED5A /* GoogleService-Info.plist in Resources */,
 				2CFC0B741D453434006EED5A /* Assets.xcassets in Resources */,
 				2CCD8DD61D45589C002A04FF /* Main.storyboard in Resources */,
+				1CA6AEDB1D5195AB00BE1575 /* fire-vector.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +282,7 @@
 				2CFC0B6D1D453433006EED5A /* AppDelegate.swift in Sources */,
 				2CD29F761D484955004ACD01 /* PageViewController.swift in Sources */,
 				2C9683E81D4B09FA004AB14F /* Chunk.swift in Sources */,
+				1CA6AED91D517BDA00BE1575 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
