@@ -75,8 +75,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     
     @IBAction func LogOut(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
-        
-        
+     
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
         

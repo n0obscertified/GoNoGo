@@ -124,7 +124,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
                 else
                 {
-                    print(user)
+                    let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
+                    
+                    self.navigationController!.pushViewController(cameraViewController, animated: true)
+
                 }
             }
         }
@@ -135,6 +138,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
         self.FbLogIn.readPermissions = ["public_profile", "email"]
