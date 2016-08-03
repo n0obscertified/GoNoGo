@@ -18,7 +18,9 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailedImage: UIImageView!
     @IBOutlet weak var poopImage: UIImageView!
     @IBOutlet weak var fireImage: UIImageView!
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         self.poopImage.hidden = true;
         self.fireImage.hidden = true;
         self.neutralImage.hidden = true;
