@@ -141,20 +141,22 @@ class GoNoGo: UIViewController
                                             continue;
                                         }
                                         
-                                        tempImages.append(GoImage(lines: value.1.arrayObject as! [String], key: value.0, owner: child.element.key!! ))
+                                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
+                                        {
+                                            tempImages.append(GoImage(lines: value.1.arrayObject as! [String], key: value.0, owner: child.element.key!! ))
+                                            
+                                            dispatch_async(dispatch_get_main_queue())
+                                            {
+                                                self.MostRecentuploads = tempImages
+                                                self.Image.image = self.MostRecentuploads.first?.Image
+                                            }
+                                        }
                                     }
                                     
                                 }
                             }
                         }
-                        
-                        dispatch_async(dispatch_get_main_queue())
-                        {
-                            self.MostRecentuploads = tempImages
-                            self.Image.image = self.MostRecentuploads.first?.Image
-                        }
-                        
-                        
+        
                         
                     }
                     

@@ -54,7 +54,6 @@ class GoImage {
         self.ImageKey = key
         self.Owner = owner
         self.string = lines.ToString
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
         do
         {
             self.data =  NSData(base64EncodedString: self.string,
@@ -68,7 +67,7 @@ class GoImage {
         {
                 
         }
-        }
+       
     }
     
 }

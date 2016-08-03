@@ -109,12 +109,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let images = myArray[indexPath.row]
         
         
-        cell.myImageView.image = images.Image
         cell.cellKey = images.ImageKey
         
         cell.setVisibility()
         cell.getScores()
         
+        cell.myImageView.image = images.Image
 
         return cell
         
