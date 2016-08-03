@@ -31,13 +31,13 @@ class MyCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    public func setVisibility(){
+    internal func setVisibility(){
         self.neutralImage.hidden = true
         self.poopImage.hidden = true
         self.fireImage.hidden = true
     }
     
-    public func getScores(){
+    internal func getScores(){
         self.db.child("Opinions").child(cellKey).observeEventType(.Value, withBlock: { (snapshot) in
             var json = JSON(snapshot.value!)
             

@@ -44,24 +44,25 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                         
                         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { 
                             self.database.child("Users").child(currentUsr.uid).child("Images").observeEventType(.Value, withBlock: { snapshot in
-                                
-                                
-                                var tempmyArray:[GoImage] = []
+                    
+                                var tempMyArray:[GoImage] = []
                                 
                                 for (_, imageKey) in  snapshot.children.enumerate()
                                 {
                                     
                                     let something = JSON(imageKey.value)
+                        
                                     
-                                    //let othersomething =
-                                    //print(othersomething)
+                                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0))
+                                    {
+                                    tempMyArray.append(GoImage(lines: something.arrayObject as! [String], key: imageKey.key!!, owner: currentUsr.uid))
                                     
-                                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
-                                    tempmyArray.append(GoImage(lines: something.arrayObject as! [String], key: imageKey.key!!, owner: currentUsr.uid))
-                                    
+                                      
                                         dispatch_async(dispatch_get_main_queue(), {
-                                            self.myArray = tempmyArray
-                                            self.myCollectionView.reloadData()
+                                            self.myArray = tempMyArray
+                                           
+                                             self.myCollectionView.reloadData()
+                                             
                                         })
 
                                     }
@@ -85,7 +86,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
         
-        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
+        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as UIViewController
         self.navigationController!.pushViewController(mainViewController, animated: true)
     }
 

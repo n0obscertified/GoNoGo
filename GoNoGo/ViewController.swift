@@ -110,26 +110,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
  
-        if FBSDKAccessToken.currentAccessToken() != nil
-        {
-            let facebookAuth = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-        
-            
-            FIRAuth.auth()?.signInWithCredential(facebookAuth)
-            { (user, error) in
-            
-                if let rcverror = error
-                {
-                    print(rcverror)
-                }
-                else
-                {
-                    let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
-                    self.navigationController!.pushViewController(cameraViewController, animated: true)
-
-                }
-            }
-        }
+  
         
         
     }
@@ -138,12 +119,44 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         super.viewDidLoad()
         
+      
+        
+        
+        self.LoginToFireBase()
         self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
         self.FbLogIn.readPermissions = ["public_profile", "email"]
         
     }
     
+    private func LoginToFireBase()
+    {
+        
+        if FBSDKAccessToken.currentAccessToken() != nil
+        {
+            let facebookAuth = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            
+            
+            FIRAuth.auth()?.signInWithCredential(facebookAuth)
+            { (user, error) in
+                
+                if let rcverror = error
+                {
+                    print(rcverror)
+                }
+                else
+                {
+                    
+                    let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
+                    self.navigationController!.pushViewController(cameraViewController, animated: true)
+                    
+                }
+            }
+        }
+        
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -164,12 +177,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
-            
-                let cameraViewController = storyboard!.instantiateViewControllerWithIdentifier("PageView")
-                print("navigating to the next view controller")
-                
-                self.navigationController!.pushViewController(cameraViewController, animated: true)
-                
+                self.LoginToFireBase()
+          
             }
         }
     }

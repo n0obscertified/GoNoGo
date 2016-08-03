@@ -20,7 +20,7 @@ class GoNoGo: UIViewController
     var Likes:FIRDatabaseReference?
     
     var MostRecentuploads:[GoImage] = [GoImage]()
-    
+   
     var sqlDb:Connection?
     
     let Images = Table("Images")
@@ -113,11 +113,13 @@ class GoNoGo: UIViewController
             {
                 (auth, user) in
                 
+                
                 self.database.child("Users").observeEventType(.Value, withBlock: {
                     (snapshot) in
                     
                     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0))
                     {
+                        
                         var tempImages:[GoImage] = self.MostRecentuploads
                         
                         for child in snapshot.children.enumerate() where child.element.key!! != user?.uid{
@@ -135,7 +137,7 @@ class GoNoGo: UIViewController
                                             continue
                                         }
                                         
-                                        // does temp image alredy contain greate dont add
+                                        // does temp image alredy contain great dont add
                                         if tempImages.contains({ image in return image.ImageKey == value.0})
                                         {
                                             continue;
@@ -148,7 +150,14 @@ class GoNoGo: UIViewController
                                             dispatch_async(dispatch_get_main_queue())
                                             {
                                                 self.MostRecentuploads = tempImages
-                                                self.Image.image = self.MostRecentuploads.first?.Image
+                                                
+                                                
+                                                guard self.Image.image != nil else
+                                                {
+                                                    self.Image.image = self.MostRecentuploads.first?.Image
+                                                   
+                                                    return
+                                                }
                                             }
                                         }
                                     }
