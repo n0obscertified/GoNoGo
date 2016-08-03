@@ -13,7 +13,7 @@ import FirebaseAuth
 import SwiftCompressor
 import FBSDKLoginKit
 import SwiftyJSON
-class ProfileViewController: UIViewController, UICollectionViewDataSource{
+class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var FBLogIn: FBSDKLoginButton!
     
@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        self.navigationController?.navigationBarHidden = true;
             FIRAuth.auth()?.addAuthStateDidChangeListener(
                 {
                     (auth, user) in
@@ -117,5 +117,19 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
+        if(segue.identifier == "ImageDetail"){
+            if let index = self.myCollectionView.indexPathsForSelectedItems()?.first{
+                 let controller = segue.destinationViewController as! DetailsViewController
+                    controller.goImage = self.myArray[index.row]
 
+                
+            }
+
+        }
+        
+    }
+    
 }
