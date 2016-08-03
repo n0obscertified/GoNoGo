@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Go No Go-->
@@ -26,34 +27,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Gw-hE-npO">
                                 <rect key="frame" x="184" y="492" width="232" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0f-ff-oo0">
-                                        <rect key="frame" x="91" y="20" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8q-dN-Wxl">
-                                        <rect key="frame" x="169" y="20" width="40" height="30"/>
-                                        <state key="normal" title="NoGo"/>
-                                        <connections>
-                                            <action selector="NoGo:" destination="9Dd-6M-gLw" eventType="touchUpInside" id="mpR-7P-uat"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-42-f0r">
-                                        <rect key="frame" x="28" y="20" width="30" height="30"/>
-                                        <state key="normal" title="Go"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-42-f0r">
+                                        <rect key="frame" x="8" y="3" width="71" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="JSo-1V-5j6"/>
+                                        </constraints>
+                                        <state key="normal" title="Go" image="go"/>
                                         <connections>
                                             <action selector="Go:" destination="9Dd-6M-gLw" eventType="touchUpInside" id="Qy5-Go-mqK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8q-dN-Wxl">
+                                        <rect key="frame" x="132" y="-6" width="85" height="81"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="NNo-AM-UiL"/>
+                                        </constraints>
+                                        <state key="normal" title="NoGo" image="X-mark-3-256"/>
+                                        <connections>
+                                            <action selector="NoGo:" destination="9Dd-6M-gLw" eventType="touchUpInside" id="mpR-7P-uat"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="bw9-42-f0r" firstAttribute="leading" secondItem="9Gw-hE-npO" secondAttribute="leading" constant="28" id="1q8-2f-H1m"/>
-                                    <constraint firstItem="r0f-ff-oo0" firstAttribute="leading" secondItem="bw9-42-f0r" secondAttribute="trailing" constant="33" id="32Y-VN-lIU"/>
-                                    <constraint firstItem="v8q-dN-Wxl" firstAttribute="leading" secondItem="r0f-ff-oo0" secondAttribute="trailing" constant="32" id="5Xf-Vq-a7h"/>
-                                    <constraint firstItem="r0f-ff-oo0" firstAttribute="baseline" secondItem="v8q-dN-Wxl" secondAttribute="baseline" id="CqC-y8-N7z"/>
-                                    <constraint firstItem="bw9-42-f0r" firstAttribute="centerY" secondItem="9Gw-hE-npO" secondAttribute="centerY" id="Y6Z-tI-XLM"/>
-                                    <constraint firstAttribute="trailing" secondItem="v8q-dN-Wxl" secondAttribute="trailing" constant="23" id="h59-cz-HLP"/>
-                                    <constraint firstItem="bw9-42-f0r" firstAttribute="baseline" secondItem="r0f-ff-oo0" secondAttribute="baseline" id="s3m-zc-IvM"/>
+                                    <constraint firstItem="bw9-42-f0r" firstAttribute="top" secondItem="9Gw-hE-npO" secondAttribute="top" constant="3" id="DSL-oo-ZS2"/>
+                                    <constraint firstAttribute="bottom" secondItem="bw9-42-f0r" secondAttribute="bottom" id="Ic2-7I-fKD"/>
+                                    <constraint firstItem="v8q-dN-Wxl" firstAttribute="centerY" secondItem="9Gw-hE-npO" secondAttribute="centerY" id="RZA-Wu-8To"/>
+                                    <constraint firstItem="v8q-dN-Wxl" firstAttribute="leading" secondItem="bw9-42-f0r" secondAttribute="trailing" constant="53" id="bJo-Vl-go0"/>
+                                    <constraint firstAttribute="trailing" secondItem="v8q-dN-Wxl" secondAttribute="trailing" constant="15" id="gBm-ri-I88"/>
+                                    <constraint firstItem="bw9-42-f0r" firstAttribute="leading" secondItem="9Gw-hE-npO" secondAttribute="leadingMargin" id="isV-Ez-498"/>
+                                    <constraint firstItem="v8q-dN-Wxl" firstAttribute="top" secondItem="9Gw-hE-npO" secondAttribute="top" constant="-6" id="y18-4o-8Zd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -76,4 +79,8 @@
             <point key="canvasLocation" x="940" y="239"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="X-mark-3-256" width="98" height="98"/>
+        <image name="go" width="98" height="98"/>
+    </resources>
 </document>
