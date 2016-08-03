@@ -125,7 +125,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 else
                 {
                     let cameraViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageView")
-                    
                     self.navigationController!.pushViewController(cameraViewController, animated: true)
 
                 }
