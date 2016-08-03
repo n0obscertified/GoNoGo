@@ -12,13 +12,13 @@ import Firebase
 import FirebaseAuth
 import SwiftCompressor
 import FBSDKLoginKit
-
+import SwiftyJSON
 class ProfileViewController: UIViewController, UICollectionViewDataSource{
 
     @IBOutlet weak var FBLogIn: FBSDKLoginButton!
     
     @IBOutlet weak var myCollectionView: UICollectionView!
-    var myArray = [AnyObject]()
+    var myArray = [GoImage]()
     var scoreArray = [AnyObject]()
     let reuseIdentifier = "cell"
     
@@ -33,35 +33,41 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
             FIRAuth.auth()?.addAuthStateDidChangeListener(
                 {
                     (auth, user) in
                     if let currentUsr  = user
                     {
                         
-                        self.database.child("Users").child(currentUsr.uid).child("Images").observeEventType(.Value, withBlock: { snapshot in
-                            self.myArray = []
-                         
-                            
+                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { 
+                            self.database.child("Users").child(currentUsr.uid).child("Images").observeEventType(.Value, withBlock: { snapshot in
+                                
+                                
+                                var tempmyArray:[GoImage] = []
+                                
                                 for (_, imageKey) in  snapshot.children.enumerate()
                                 {
-
-                                   self.myArray.append(imageKey)
+                                    
+                                    let something = JSON(imageKey.value)
+                                    
+                                    //let othersomething =
+                                    //print(othersomething)
+                                    
+                                    tempmyArray.append(GoImage(lines: something.arrayObject as! [String], key: imageKey.key!!, owner: currentUsr.uid))
                                     
                                 }
-                            
-                            
-                            self.myCollectionView.reloadData()
+                                
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.myArray = tempmyArray
+                                    self.myCollectionView.reloadData()
+                                })
+                                
+                                
+                            })
                         })
-                        
-                        self.database.child("Opinions").observeEventType(.ChildAdded, withBlock: { snapshot in
-                            self.scoreArray = []
-                            
-                            for(_, imageScoreKey) in snapshot.children.enumerate()
-                            {
-                                self.scoreArray.append(imageScoreKey)
-                            }
-                        })
+
+
                     }
             })
         
@@ -100,28 +106,14 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         cell.layer.cornerRadius = 5
         
         let images = myArray[indexPath.row]
-
-            var lines = ""
-            for i in images.children
-            {
-                lines.appendContentsOf(i.value!!)
-                
-            }
-   
-            do
-            {
-                
-                let imageData = try NSData(base64EncodedString: lines ,
-                                             options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)?.decompress()
-                
-                let decodedImage = UIImage(data:imageData!)
-
-                cell.myImageView.image = decodedImage
-
-            }
-            
-            catch{}
         
+        
+        cell.myImageView.image = images.Image
+        cell.cellKey = images.ImageKey
+        
+        cell.getScores()
+        
+
         return cell
         
         
