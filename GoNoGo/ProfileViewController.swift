@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var FBLogIn: FBSDKLoginButton!
     
+    @IBOutlet weak var poopImage: UIImageView!
+    @IBOutlet weak var fireImage: UIImageView!
     @IBOutlet weak var myCollectionView: UICollectionView!
     var myArray = [GoImage]()
     var scoreArray = [AnyObject]()
@@ -110,6 +112,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         cell.myImageView.image = images.Image
         cell.cellKey = images.ImageKey
         
+        cell.setVisibility()
         cell.getScores()
         
 

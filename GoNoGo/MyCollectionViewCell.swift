@@ -11,9 +11,13 @@ import FirebaseDatabase
 import SwiftyJSON
 class MyCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var poopImage: UIImageView!
+    @IBOutlet weak var fireImage: UIImageView!
+    @IBOutlet weak var neutralImage: UIImageView!
+    
     let db = FIRDatabase.database().reference()
     var cellKey:String
-    @IBOutlet weak var score: UILabel!
+    
     @IBOutlet weak var myImageView: UIImageView!
     
     required override init(frame: CGRect) {
@@ -27,13 +31,34 @@ class MyCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+    public func setVisibility(){
+        self.neutralImage.hidden = true
+        self.poopImage.hidden = true
+        self.fireImage.hidden = true
+    }
+    
     public func getScores(){
         self.db.child("Opinions").child(cellKey).observeEventType(.Value, withBlock: { (snapshot) in
             var json = JSON(snapshot.value!)
             
             let value = json.dictionaryObject!["Mean"]
             
-            self.score.text = "\(value!)"
+            if (value! as! Double == 0.0){
+                self.neutralImage.hidden = false;
+                self.poopImage.hidden = true;
+                self.fireImage.hidden = true;
+            }
+            else if(value! as! Double > 0.0){
+                self.neutralImage.hidden = true;
+                self.poopImage.hidden = true;
+                self.fireImage.hidden = false;
+            }
+            
+            else{
+                self.neutralImage.hidden = true;
+                self.poopImage.hidden = false;
+                self.fireImage.hidden = true;
+            }
         })
     }
     
