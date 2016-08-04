@@ -10,4 +10,4 @@ Notes:
 You can login via email and password the first login attemp will fail since you are not registered than you can just sign up.
 You cannot login though facebook as the Facebook SDK only allows for a certain number of test users and if i am not mistaken my Fb friends can also login.
 
---If you find any bugs or would like to see somthing done please feel free to let us know or you can attempt to do it yourself.
+--If you find any bugs or would like to see something implemented please feel free to log it and we will get to it as soon as possible, or you can implement it yourself.
