@@ -109,19 +109,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
- 
-  
-        
         
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-      
-        
-        
+        self.hideKeyBoardWhenTapped()
         self.LoginToFireBase()
         self.signUpButton.hidden = true
         self.FbLogIn.delegate = self;
