@@ -36,17 +36,17 @@ extension NSData{
 import Foundation
 import UIKit
 import SwiftCompressor
-class GoImage {
+struct GoImage {
     
     let ImageKey:String
     
-    var Image:UIImage = UIImage()
+    let Image:UIImage!
     
-    var string:String = ""
+    let string:String
     
-    var data:NSData = NSData()
+    let data:NSData!
     
-    var Owner:String
+    let Owner:String
 
     
     init(lines:[String], key:String,owner:String)
@@ -65,6 +65,8 @@ class GoImage {
                 
         }catch
         {
+            self.data = nil
+            self.Image = nil
                 
         }
        

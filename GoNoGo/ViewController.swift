@@ -20,8 +20,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
-    var userEmail:String=""
-    var userPassword:String=""
+    var userEmail:String = ""
+    var userPassword:String = ""
     
     var ref:FIRDatabaseReference? = FIRDatabase.database().reference()
 
