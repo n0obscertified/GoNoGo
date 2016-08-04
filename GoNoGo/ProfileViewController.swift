@@ -45,12 +45,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { 
                             self.database.child("Users").child(currentUsr.uid).child("Images").observeEventType(.Value, withBlock: { snapshot in
                     
-                                var tempMyArray:[GoImage] = []
+                                var tempMyArray:[GoImage] = self.myArray
                                 
                                 for (_, imageKey) in  snapshot.children.enumerate()
                                 {
                                     
                                     let something = JSON(imageKey.value)
+                                    
+                                    if tempMyArray.contains({ image in return image.ImageKey == imageKey.key!!})
+                                    {
+                                        continue
+                                    }
                         
                                     
                                     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0))

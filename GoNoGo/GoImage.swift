@@ -56,10 +56,10 @@ class GoImage {
         self.string = lines.ToString
         do
         {
-            self.data =  NSData(base64EncodedString: self.string,
+            let uncompressed =  NSData(base64EncodedString: self.string,
                                     options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
               
-            self.data = try self.data.decompress()!
+            self.data = try uncompressed.decompress()!
                
             self.Image = self.data.ToUIImage
                 
