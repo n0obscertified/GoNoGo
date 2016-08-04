@@ -45,9 +45,11 @@ class GoCameraController: CameraViewController {
                                 {
                                     let stringImage:String
                                     do{
-                                        let compress = try UIImageJPEGRepresentation(rawImage,0)?.compress()
+                                        let compress = try UIImageJPEGRepresentation(rawImage,0.5)?.compress()
                                         
                                         stringImage = compress!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+                                        
+                                        
                                         
                                         
                                     }catch{
